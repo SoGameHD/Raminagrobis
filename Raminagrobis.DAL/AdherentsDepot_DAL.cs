@@ -34,6 +34,7 @@ namespace Raminagrobis.DAL
 
             return listeAdherents;
         }
+
         public override Adherent_DAL GetByID(int ID)
         {
             CreerConnexionEtCommande();
@@ -62,6 +63,25 @@ namespace Raminagrobis.DAL
             DetruireConnexionEtCommande();
 
             return adherent;
+        }
+
+        public override Adherent_DAL Insert(Adherent_DAL adherent)
+        {
+            throw new NotImplementedException();
+            //TODO
+        }
+
+        public override Adherent_DAL Update(Adherent_DAL adherent)
+        {
+            throw new NotImplementedException();
+            //TODO
+        }
+
+        public override void Delete(Adherent_DAL adherent)
+        {
+
+            throw new NotImplementedException();
+            //TODO
         }
 
     }
