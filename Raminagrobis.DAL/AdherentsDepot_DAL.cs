@@ -112,7 +112,6 @@ namespace Raminagrobis.DAL
 
         public override void Delete(Adherent_DAL adherent)
         {
-
             CreerConnexionEtCommande();
 
             commande.CommandText = "delete from Adherents where ID=@ID";
