@@ -61,5 +61,24 @@ namespace Raminagrobis.DAL
 
             return listeProduits;
         }
+
+        public override Produits_DAL Insert(Produits_DAL produits)
+        {
+            throw new NotImplementedException();
+            //TODO
+        }
+
+        public override Produits_DAL Update(Produits_DAL produits)
+        {
+            throw new NotImplementedException();
+            //TODO
+        }
+
+        public override void Delete(Produits_DAL produits)
+        {
+
+            throw new NotImplementedException();
+            //TODO
+        }
     }
 }

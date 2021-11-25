@@ -8,14 +8,19 @@ namespace Raminagrobis
     {
         static void Main(string[] args)
         {
-            var depot_adherent = new AdherentDepot_DAL();
-            List<Adherent_DAL> listeAdherent = depot_adherent.GetAll();
 
-            var depot_produits = new ProduitsDepot_DAL();
-            List<Produits_DAL> listeProduits = depot_produits.GetAll();
 
-            var depot_produits_ID = new ProduitsDepot_DAL();
-            Produits_DAL ProduitsByID = depot_produits_ID.GetByID(1);
+            var depotFournisseurs = new FournisseursDepot_DAL();
+            List<Fournisseurs_DAL> listeFournisseurs = depotFournisseurs.GetAll();
+
+            var depotFournisseursAll = new FournisseursDepot_DAL();
+            Fournisseurs_DAL FournisseursAvecID = depotFournisseursAll.GetByID(1);
+
+            var depotFournisseurs2 = new FournisseursDepot_DAL();
+            var Fournisseur = new Fournisseurs_DAL("ok", true, "Nom", "Prenom", "Email", "Adresse", false);
+
+            depotFournisseurs2.Insert(Fournisseur);
+            depotFournisseurs2.Delete(Fournisseur);
         }
     }
 }
