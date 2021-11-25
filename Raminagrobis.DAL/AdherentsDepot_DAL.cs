@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Raminagrobis.DAL
 {
     public class AdherentDepot_DAL : Depot_DAL<Adherent_DAL>
-    {
+    { 
         public override List<Adherent_DAL> GetAll()
         {
             CreerConnexionEtCommande();
@@ -64,5 +64,18 @@ namespace Raminagrobis.DAL
             return adherent;
         }
 
+        public override Adherent_DAL Insert(Adherent_DAL item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Adherent_DAL Update(Adherent_DAL item)
+        {
+            throw new NotImplementedException();
+        }
+        public override void Delete(Adherent_DAL item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

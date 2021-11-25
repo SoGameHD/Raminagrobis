@@ -43,11 +43,11 @@ namespace Raminagrobis.DAL
 
         public abstract Type_DAL GetByID(int ID);
 
-        /*public abstract void Delete(Type_DAL item);
+        public abstract void Delete(Type_DAL item);
 
         public abstract Type_DAL Insert(Type_DAL item);
 
-        public abstract Type_DAL Update(Type_DAL item);*/
+        public abstract Type_DAL Update(Type_DAL item);
         #endregion
     }
 }
