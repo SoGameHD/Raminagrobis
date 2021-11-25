@@ -19,6 +19,7 @@ namespace Raminagrobis.DAL
 
         public Produits_DAL(int id, string reference, string libelle, string marque, bool actif) => (ID, Reference, Libelle, Marque, Actif) = (id, reference, libelle, marque, actif);
 
+        #region Insert
         public void Insert(SqlConnection connexion)
         {
 
@@ -37,5 +38,6 @@ namespace Raminagrobis.DAL
             }
             connexion.Close();
         }
+        #endregion
     }
 }

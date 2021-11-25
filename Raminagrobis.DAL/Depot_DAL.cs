@@ -7,8 +7,6 @@ namespace Raminagrobis.DAL
 
     public abstract class Depot_DAL<Type_DAL> : IDepot_DAL<Type_DAL>
     {
-
-
         public string ChaineDeConnexion { get; set; }
 
         protected SqlConnection connexion;
@@ -22,6 +20,7 @@ namespace Raminagrobis.DAL
             ChaineDeConnexion = config.GetSection("ConnectionStrings:default").Value;
         }
 
+        #region CreerConnexionEtCommande
         protected void CreerConnexionEtCommande()
         {
             connexion = new SqlConnection(ChaineDeConnexion);
@@ -29,13 +28,16 @@ namespace Raminagrobis.DAL
             commande = new SqlCommand();
             commande.Connection = connexion;
         }
+        #endregion
 
+        #region DetruireConnexionEtCommande
         protected void DetruireConnexionEtCommande()
         {
             commande.Dispose();
             connexion.Close();
             connexion.Dispose();
         }
+        #endregion
 
         #region Méthodes abstraites
 

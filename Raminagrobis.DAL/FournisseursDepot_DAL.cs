@@ -9,6 +9,7 @@ namespace Raminagrobis.DAL
 {
     public class FournisseursDepot_DAL : Depot_DAL<Fournisseurs_DAL>
     {
+        #region GetAll
         public override List<Fournisseurs_DAL> GetAll()
         {
             CreerConnexionEtCommande();
@@ -35,7 +36,9 @@ namespace Raminagrobis.DAL
 
             return listeFournisseurs;
         }
+        #endregion
 
+        #region GetByID
         public override Fournisseurs_DAL GetByID(int ID)
         {
             CreerConnexionEtCommande();
@@ -66,8 +69,9 @@ namespace Raminagrobis.DAL
 
             return fournisseur;
         }
+        #endregion
 
-
+        #region Insert
         public override Fournisseurs_DAL Insert(Fournisseurs_DAL fournisseur)
         {
             CreerConnexionEtCommande();
@@ -88,6 +92,9 @@ namespace Raminagrobis.DAL
 
             return fournisseur;
         }
+        #endregion
+
+        #region Update
         public override Fournisseurs_DAL Update(Fournisseurs_DAL fournisseur)
         {
             CreerConnexionEtCommande();
@@ -112,8 +119,9 @@ namespace Raminagrobis.DAL
 
             return fournisseur;
         }
+        #endregion
 
-
+        #region Delete
         public override void Delete(Fournisseurs_DAL fournisseur)
         {
             CreerConnexionEtCommande();
@@ -128,6 +136,7 @@ namespace Raminagrobis.DAL
             }
             DetruireConnexionEtCommande();
         }
+        #endregion
 
     }
 }

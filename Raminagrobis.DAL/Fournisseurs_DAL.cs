@@ -18,11 +18,11 @@ namespace Raminagrobis.DAL
         public string Adresse { get; set; }
         public bool Actif { get; set; }
 
-
         public Fournisseurs_DAL(string societe, bool civilite, string nom, string prenom, string email, string adresse, bool actif) => (Societe, Civilite, Nom, Prenom, Email, Adresse, Actif) = (societe, civilite, nom, prenom, email, adresse, actif);
 
         public Fournisseurs_DAL(int id, string societe, bool civilite, string nom, string prenom, string email, string adresse, bool actif) => (ID, Societe, Civilite, Nom, Prenom, Email, Adresse, Actif) = (id, societe, civilite, nom, prenom, email, adresse, actif);
 
+        #region Insert
         public void Insert(SqlConnection connexion)
         {
 
@@ -40,13 +40,10 @@ namespace Raminagrobis.DAL
                 commande.Parameters.Add(new SqlParameter("@Actif", Actif));
 
                 ID = Convert.ToInt32((decimal)commande.ExecuteScalar());
-
-
-
-
             }
             connexion.Close();
         }
+        #endregion
     }
 }
 
