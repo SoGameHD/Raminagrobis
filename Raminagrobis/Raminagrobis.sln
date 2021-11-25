@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raminagrobis.DAL", "..\Raminagrobis.DAL\Raminagrobis.DAL.csproj", "{15225655-17C7-457D-98B3-594675F43DDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raminagrobis", "Raminagrobis.csproj", "{1A8A6EFE-4632-40AC-8D5D-C3AF2BCEC394}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15225655-17C7-457D-98B3-594675F43DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15225655-17C7-457D-98B3-594675F43DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15225655-17C7-457D-98B3-594675F43DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15225655-17C7-457D-98B3-594675F43DDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A8A6EFE-4632-40AC-8D5D-C3AF2BCEC394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8A6EFE-4632-40AC-8D5D-C3AF2BCEC394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8A6EFE-4632-40AC-8D5D-C3AF2BCEC394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8A6EFE-4632-40AC-8D5D-C3AF2BCEC394}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9DF759D9-37EC-437A-8025-19167FF5091A}
+	EndGlobalSection
+EndGlobal
