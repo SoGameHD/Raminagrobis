@@ -9,6 +9,7 @@ namespace Raminagrobis.DAL
 {
     public class AdherentDepot_DAL : Depot_DAL<Adherent_DAL>
     {
+        #region GetAll
         public override List<Adherent_DAL> GetAll()
         {
             CreerConnexionEtCommande();
@@ -35,7 +36,9 @@ namespace Raminagrobis.DAL
 
             return listeAdherents;
         }
+        #endregion
 
+        #region GetByID
         public override Adherent_DAL GetByID(int ID)
         {
             CreerConnexionEtCommande();
@@ -60,12 +63,13 @@ namespace Raminagrobis.DAL
                 throw new Exception($"Aucune occurance à l'ID {ID} dans la table Adherents");
             }
 
-
             DetruireConnexionEtCommande();
 
             return adherent;
         }
+        #endregion
 
+        #region Insert
         public override Adherent_DAL Insert(Adherent_DAL adherent)
         {
             CreerConnexionEtCommande();
@@ -86,7 +90,9 @@ namespace Raminagrobis.DAL
 
             return adherent;
         }
+        #endregion
 
+        #region Update
         public override Adherent_DAL Update(Adherent_DAL adherent)
         {
             CreerConnexionEtCommande();
@@ -109,7 +115,9 @@ namespace Raminagrobis.DAL
 
             return adherent;
         }
+        #endregion
 
+        #region Delete
         public override void Delete(Adherent_DAL adherent)
         {
             CreerConnexionEtCommande();
@@ -125,6 +133,7 @@ namespace Raminagrobis.DAL
 
             DetruireConnexionEtCommande();
         }
+        #endregion
 
     }
 }
