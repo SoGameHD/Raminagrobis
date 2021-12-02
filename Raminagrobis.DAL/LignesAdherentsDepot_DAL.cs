@@ -34,14 +34,50 @@ namespace Raminagrobis.DAL
         }
         #endregion
 
-        #region GetByID
-        public override LignesAdherents_DAL GetByID(int ID_produit/*, int ID_commande*/)
+        #region GetByID_produit
+        public override LignesAdherents_DAL GetByID(int ID)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region GetByID_produit
+        public LignesAdherents_DAL GetByID_produit(int ID_produit)
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID_produit, ID_commande, id_ligne_globale, quantite from LignesAdherent where ID_produit=@ID_produits, ID_commande=@ID_commande";
+            commande.CommandText = "select ID_produit, ID_commande, id_ligne_globale, quantite from LignesAdherent where ID_produit=@ID_produits";
             commande.Parameters.Add(new SqlParameter("@ID_produit", ID_produit));
-            /*commande.Parameters.Add(new SqlParameter("@ID_commande", ID_commande));*/
+            var reader = commande.ExecuteReader();
+
+            LignesAdherents_DAL listeAdherent;
+
+            if (reader.Read())
+            {
+                listeAdherent = new LignesAdherents_DAL(reader.GetInt32(0),
+                                        reader.GetInt32(1),
+                                        reader.GetInt32(2),
+                                        reader.GetInt32(3)
+                                        );
+            }
+            else
+            {
+                throw new Exception($"Aucune occurance à l'ID {ID_produit} dans la table LignesAdherent");
+            }
+
+            DetruireConnexionEtCommande();
+
+            return listeAdherent;
+        }
+        #endregion
+
+        #region GetByID_commande
+        public LignesAdherents_DAL GetByID_commande(int ID_commande)
+        {
+            CreerConnexionEtCommande();
+
+            commande.CommandText = "select ID_produit, ID_commande, id_ligne_globale, quantite from LignesAdherent where ID_commande=@ID_commande";
+            commande.Parameters.Add(new SqlParameter("@ID_commande", ID_commande));
             var reader = commande.ExecuteReader();
 
             LignesAdherents_DAL listeAdherent;
