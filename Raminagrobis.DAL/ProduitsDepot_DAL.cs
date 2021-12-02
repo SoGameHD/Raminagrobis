@@ -49,10 +49,11 @@ namespace Raminagrobis.DAL
 
             if (reader.Read())
             {
-                listeProduits = new Produits_DAL(reader.GetString(0),
+                listeProduits = new Produits_DAL(reader.GetInt16(0),
                                         reader.GetString(1),
                                         reader.GetString(2),
-                                        reader.GetBoolean(3)
+                                        reader.GetString(3),
+                                        reader.GetBoolean(4)
                                         );
             }
             else
@@ -88,7 +89,6 @@ namespace Raminagrobis.DAL
         }
         #endregion
 
-
         #region Update
         public override Produits_DAL Update(Produits_DAL produits)
         {
@@ -103,7 +103,7 @@ namespace Raminagrobis.DAL
 
             if (nombreDeLignesAffectees != 1)
             {
-                throw new Exception($"Impossible de mettre à jour le fournisseur d'ID {produits.ID}");
+                throw new Exception($"Impossible de mettre à jour le Produits d'ID {produits.ID}");
             }
 
 

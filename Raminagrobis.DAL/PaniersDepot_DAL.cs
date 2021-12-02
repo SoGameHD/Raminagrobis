@@ -88,7 +88,7 @@ namespace Raminagrobis.DAL
 
             if (nombreDeLignesAffectees != 1)
             {
-                throw new Exception($"Impossible de mettre à jour le fournisseur d'ID {paniers.ID}");
+                throw new Exception($"Impossible de mettre à jour le Paniers d'ID {paniers.ID}");
             }
 
 

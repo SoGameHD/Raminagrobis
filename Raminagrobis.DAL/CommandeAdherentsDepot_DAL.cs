@@ -94,7 +94,7 @@ namespace Raminagrobis.DAL
 
             if (nombreDeLignesAffectees != 1)
             {
-                throw new Exception($"Impossible de mettre à jour le panier d'ID {commandes.ID}");
+                throw new Exception($"Impossible de mettre à jour la CommandeAdherents d'ID {commandes.ID}");
             }
 
             DetruireConnexionEtCommande();

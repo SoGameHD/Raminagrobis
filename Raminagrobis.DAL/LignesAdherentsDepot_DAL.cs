@@ -21,8 +21,8 @@ namespace Raminagrobis.DAL
 
             while (reader.Read())
             {
-                var lignesAdherent = new LignesAdherents_DAL(reader.GetInt32(0),
-                                        reader.GetInt32(1)
+                var lignesAdherent = new LignesAdherents_DAL(reader.GetInt16(0),
+                                        reader.GetInt16(1)
                                         );
 
                 listeAdherents.Add(lignesAdherent);
@@ -34,7 +34,7 @@ namespace Raminagrobis.DAL
         }
         #endregion
 
-        #region GetByID_produit
+        #region GetByID
         public override LignesAdherents_DAL GetByID(int ID)
         {
             throw new NotImplementedException();
@@ -54,10 +54,8 @@ namespace Raminagrobis.DAL
 
             if (reader.Read())
             {
-                listeAdherent = new LignesAdherents_DAL(reader.GetInt32(0),
-                                        reader.GetInt32(1),
-                                        reader.GetInt32(2),
-                                        reader.GetInt32(3)
+                listeAdherent = new LignesAdherents_DAL(reader.GetInt16(0),
+                                        reader.GetInt16(1)
                                         );
             }
             else
@@ -84,15 +82,13 @@ namespace Raminagrobis.DAL
 
             if (reader.Read())
             {
-                listeAdherent = new LignesAdherents_DAL(reader.GetInt32(0),
-                                        reader.GetInt32(1),
-                                        reader.GetInt32(2),
-                                        reader.GetInt32(3)
+                listeAdherent = new LignesAdherents_DAL(reader.GetInt16(0),
+                                        reader.GetInt16(1)
                                         );
             }
             else
             {
-                throw new Exception($"Aucune occurance à l'ID {ID_produit} dans la table LignesAdherent");
+                throw new Exception($"Aucune occurance à l'ID {ID_commande} dans la table LignesAdherent");
             }
 
             DetruireConnexionEtCommande();
@@ -104,14 +100,38 @@ namespace Raminagrobis.DAL
         #region Insert
         public override LignesAdherents_DAL Insert(LignesAdherents_DAL lignesAdherent)
         {
-            throw new NotImplementedException();
+            CreerConnexionEtCommande();
+
+            commande.CommandText = "insert into LignesAdherent (id_produit, id_commande, id_ligne_global, quantite)" + " values (@ID_produit, @ID_commande, @ID_ligne_global, @Quantite); select scope_identity()";
+            commande.Parameters.Add(new SqlParameter("@ID_produit", lignesAdherent.ID_produit));
+            commande.Parameters.Add(new SqlParameter("@ID_commande", lignesAdherent.ID_commande));
+            commande.Parameters.Add(new SqlParameter("@ID_ligne_global", lignesAdherent.ID_ligne_global));
+            commande.Parameters.Add(new SqlParameter("@Quantite", lignesAdherent.Quantite));
+
+            DetruireConnexionEtCommande();
+
+            return lignesAdherent;
         }
         #endregion
 
         #region Update
         public override LignesAdherents_DAL Update(LignesAdherents_DAL lignesAdherent)
         {
-            throw new NotImplementedException();
+            CreerConnexionEtCommande();
+
+            commande.CommandText = "update LignesAdherent SET id_ligne_global = @ID_ligne_global, quantite = @Quantite where ID_produit = @ID_produit and ID_commande = @ID_commande";
+            commande.Parameters.Add(new SqlParameter("@ID_ligne_global", lignesAdherent.ID_ligne_global));
+            commande.Parameters.Add(new SqlParameter("@Quantite", lignesAdherent.Quantite));
+            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+
+            if (nombreDeLignesAffectees != 1)
+            {
+                throw new Exception($"Impossible de mettre à jour la LignesAdherents d'ID_produit {lignesAdherent.ID_produit} & d'ID_commande {lignesAdherent.ID_commande}");
+            }
+
+            DetruireConnexionEtCommande();
+
+            return lignesAdherent;
         }
         #endregion
 
