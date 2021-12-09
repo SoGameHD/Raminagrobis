@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RaminagrobisDTO
 {
-    class Adherent_DTO
+    public class Adherent_DTO
     {
         public string Societe { get; private set; }
         public Boolean Civilite { get; private set; }

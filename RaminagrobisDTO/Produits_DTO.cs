@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Raminagrobis.DTO
 {
-    class Produits_DTO
+    public class Produits_DTO
     {
         public string Reference { get; set; }
         public string Libelle { get; set; }

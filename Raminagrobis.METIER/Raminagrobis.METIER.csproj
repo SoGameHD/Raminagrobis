@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Raminagrobis.DAL\Raminagrobis.DAL.csproj" />
+    <ProjectReference Include="..\RaminagrobisDTO\Raminagrobis.DTO.csproj" />
   </ItemGroup>
 
 </Project>

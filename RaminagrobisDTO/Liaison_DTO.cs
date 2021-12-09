@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Raminagrobis.DTO
 {
-    class Liaison_DTO
+    public class Liaison_DTO
     {
         public int ID_produit { get; set; }
         public int ID_fournisseur { get; set; }

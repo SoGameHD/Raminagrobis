@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Raminagrobis.DTO
 {
-    class LignesAdherents_DTO
+    public class LignesAdherents_DTO
     {
         public int ID_ligne_global { get; set; }
         public int Quantite { get; set; }

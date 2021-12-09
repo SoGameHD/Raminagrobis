@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Raminagrobis.DTO
 {
-    class Propositions_DTO
+    public class Propositions_DTO
     {
         public int Prix { get; set; }
         public int ID_ligne_global { get; set; }
