@@ -14,6 +14,7 @@ namespace RaminagrobisDTO
         public string Prenom { get; private set; }
         public string Email { get; private set; }
         public DateTime Date_adhesion { get; private set; }
+        public Boolean Actif { get; private set; }
         public int? ID { get; set; }
     }
 }
