@@ -13,6 +13,8 @@ namespace Raminagrobis.METIER
         public int ID { get; set; }
 
         public Paniers_METIER(string libelle) => (Libelle) = (libelle);
+        public Paniers_METIER(int id, string libelle) => (ID, Libelle) = (id, libelle);
+
 
         #region Insert
         public void Insert()

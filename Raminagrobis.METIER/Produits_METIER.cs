@@ -16,6 +16,7 @@ namespace Raminagrobis.METIER
 
         private int ID { get; set; }
         public Produits_METIER(string reference, string libelle, string marque, bool actif) => (Reference, Libelle, Marque, Actif) = (reference, libelle, marque, actif);
+        public Produits_METIER(int id, string reference, string libelle, string marque, bool actif) => (ID, Reference, Libelle, Marque, Actif) = (id, reference, libelle, marque, actif);
 
         #region Insert
         public void Insert()
