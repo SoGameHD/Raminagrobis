@@ -16,6 +16,7 @@ namespace Raminagrobis.METIER
         private int ID { get; set; }
 
         public Fournisseurs_METIER(string societe, bool civilite, string nom, string prenom, string email, string adresse, bool actif) => (Societe, Civilite, Nom, Prenom, Email, Adresse, Actif) = (societe, civilite, nom, prenom, email, adresse, actif);
+        public Fournisseurs_METIER(int id, string societe, bool civilite, string nom, string prenom, string email, string adresse, bool actif) => (ID, Societe, Civilite, Nom, Prenom, Email, Adresse, Actif) = (id, societe, civilite, nom, prenom, email, adresse, actif);
 
         #region Insert
         public void Insert()
