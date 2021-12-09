@@ -14,7 +14,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select societe, civilite, nom, prenom, email, date_adhesion from Adherents";
+            commande.CommandText = "select societe, civilite, nom, prenom, email, date_adhesion, actif from Adherents";
             var reader = commande.ExecuteReader();
 
             var listeAdherents = new List<Adherent_DAL>();
@@ -22,11 +22,12 @@ namespace Raminagrobis.DAL
             while (reader.Read())
             {
                 var adherent = new Adherent_DAL(reader.GetString(0),
-                                        reader.GetBoolean(2),
+                                        reader.GetBoolean(1),
+                                        reader.GetString(2),
                                         reader.GetString(3),
                                         reader.GetString(4),
-                                        reader.GetString(5),
-                                        reader.GetDateTime(6)
+                                        reader.GetDateTime(5),
+                                        reader.GetBoolean(6)
                                         );
 
                 listeAdherents.Add(adherent);
@@ -43,7 +44,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID, societe, civilite, nom, prenom, email, date_adhesion from Adherents where ID=@ID";
+            commande.CommandText = "select ID, societe, civilite, nom, prenom, email, date_adhesion, actif from Adherents where ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", ID));
             var reader = commande.ExecuteReader();
 
@@ -55,7 +56,9 @@ namespace Raminagrobis.DAL
                                         reader.GetString(2),
                                         reader.GetString(3),
                                         reader.GetString(4),
-                                        reader.GetDateTime(5));
+                                        reader.GetDateTime(5),
+                                        reader.GetBoolean(6)
+                                        );
             }
             else
             {
@@ -73,13 +76,14 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into Adherents(societe, civilite, nom, prenom, email, date_adhesion)" + " values (@Societe, @Civilite, @Nom, @Prenom, @Email, @Date_adhesion); select scope_identity()";
+            commande.CommandText = "insert into Adherents(societe, civilite, nom, prenom, email, date_adhesion, actif)" + " values (@Societe, @Civilite, @Nom, @Prenom, @Email, @Date_adhesion, @Actif); select scope_identity()";
             commande.Parameters.Add(new SqlParameter("@Societe", adherent.Societe));
             commande.Parameters.Add(new SqlParameter("@Civilite", adherent.Civilite));
             commande.Parameters.Add(new SqlParameter("@Nom", adherent.Nom));
             commande.Parameters.Add(new SqlParameter("@Prenom", adherent.Prenom));
             commande.Parameters.Add(new SqlParameter("@Email", adherent.Email));
             commande.Parameters.Add(new SqlParameter("@Date_adhesion", adherent.Date_adhesion));
+            commande.Parameters.Add(new SqlParameter("@Actif", adherent.Actif));
 
             var ID = Convert.ToInt32((decimal)commande.ExecuteScalar());
 
@@ -96,7 +100,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "update Adherents set societe=@Societe, civilite=@Civilite, nom=@Nom, prenom=@Prenom, email=@Email, date_adhesion=@Date_adhesion where ID=@ID";
+            commande.CommandText = "update Adherents set societe=@Societe, civilite=@Civilite, nom=@Nom, prenom=@Prenom, email=@Email, date_adhesion=@Date_adhesion, actif=@Actif where ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", adherent.ID));
             commande.Parameters.Add(new SqlParameter("@Societe", adherent.Societe));
             commande.Parameters.Add(new SqlParameter("@Civilite", adherent.Civilite));
@@ -104,6 +108,7 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@Prenom", adherent.Prenom));
             commande.Parameters.Add(new SqlParameter("@Email", adherent.Email));
             commande.Parameters.Add(new SqlParameter("@Date_adhesion", adherent.Date_adhesion));
+            commande.Parameters.Add(new SqlParameter("@Actif", adherent.Actif));
 
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
