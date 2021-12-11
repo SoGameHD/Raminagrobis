@@ -12,6 +12,7 @@ namespace Raminagrobis.DAL
         protected SqlConnection connexion;
         protected SqlCommand commande;
 
+        #region Depot
         public Depot_DAL()
         {
             var builder = new ConfigurationBuilder();
@@ -19,6 +20,7 @@ namespace Raminagrobis.DAL
 
             ChaineDeConnexion = config.GetSection("ConnectionStrings:default").Value;
         }
+        #endregion
 
         #region CreerConnexionEtCommande
         protected void CreerConnexionEtCommande()
