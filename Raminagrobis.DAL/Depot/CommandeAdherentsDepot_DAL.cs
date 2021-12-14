@@ -14,7 +14,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select id_adherent, id_panier from Commandes";
+            commande.CommandText = "SELECT id_adherent, id_panier FROM Commandes";
             var reader = commande.ExecuteReader();
 
             var listeCommande = new List<CommandeAdherents_DAL>();
@@ -39,7 +39,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID, id_adherent, id_panier from Commandes where ID=@ID";
+            commande.CommandText = "SELECT ID, id_adherent, id_panier FROM Commandes WHERE ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", ID));
             var reader = commande.ExecuteReader();
 
@@ -68,7 +68,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into Commandes (id_adherent, id_panier)" + " values (@ID_adherent, @ID_panier); select scope_identity()";
+            commande.CommandText = "INSERT INTO Commandes (id_adherent, id_panier) VALUES (@ID_adherent, @ID_panier); SELECT SCOPE_IDENTITY()";
             commande.Parameters.Add(new SqlParameter("@ID_adherent", commandes.ID_adherent));
             commande.Parameters.Add(new SqlParameter("@ID_panier", commandes.ID_panier));
 
@@ -87,14 +87,14 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "update Commandes SET id_adherent = @ID_adherent, id_panier = @ID_panier where ID = @ID";
+            commande.CommandText = "UPDATE Commandes SET id_adherent = @ID_adherent, id_panier = @ID_panier WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID_adherent", commandes.ID_adherent));
             commande.Parameters.Add(new SqlParameter("@ID_panier", commandes.ID_panier));
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
             {
-                throw new Exception($"Impossible de mettre à jour la CommandeAdherents d'ID {commandes.ID}");
+                throw new Exception($"Impossible de mettre à jour la CommandeAdherents d'ID : {commandes.ID}");
             }
 
             DetruireConnexionEtCommande();
@@ -107,14 +107,14 @@ namespace Raminagrobis.DAL
         public override void Delete(CommandeAdherents_DAL commandes)
         {
             CreerConnexionEtCommande();
-            commande.CommandText = "delete from Commandes where ID = @ID";
+            commande.CommandText = "DELETE FROM Commandes WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID", commandes.ID));
 
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees < 0)
             {
-                throw new Exception($"Impossible de mettre à jour la commmande d'ID {commandes.ID}");
+                throw new Exception($"Impossible de supprimer la CommandeAdherents d'ID {commandes.ID}");
             }
             DetruireConnexionEtCommande();
         }

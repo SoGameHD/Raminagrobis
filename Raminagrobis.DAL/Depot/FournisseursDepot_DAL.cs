@@ -14,7 +14,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select societe, civilite, nom, prenom, email, adresse,actif from Fournisseurs";
+            commande.CommandText = "SELECT societe, civilite, nom, prenom, email, adresse, actif FROM Fournisseurs";
             var reader = commande.ExecuteReader();
 
             var listeFournisseurs = new List<Fournisseurs_DAL>();
@@ -43,7 +43,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID, societe, civilite, nom, prenom, email, adresse, actif from Fournisseurs where ID=@ID";
+            commande.CommandText = "SELECT ID, societe, civilite, nom, prenom, email, adresse, actif FROM Fournisseurs where ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", ID));
             var reader = commande.ExecuteReader();
 
@@ -76,7 +76,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into Fournisseurs(societe, civilite, nom, prenom, email, adresse, actif)" + " values (@Societe, @Civilite, @Nom, @Prenom, @Email, @Adresse, @Actif); select scope_identity()";
+            commande.CommandText = "INSERT INTO Fournisseurs(societe, civilite, nom, prenom, email, adresse, actif) VALUES (@Societe, @Civilite, @Nom, @Prenom, @Email, @Adresse, @Actif); SELECT SCOPE IDENTITY()";
             commande.Parameters.Add(new SqlParameter("@Societe", fournisseur.Societe));
             commande.Parameters.Add(new SqlParameter("@Civilite", fournisseur.Civilite));
             commande.Parameters.Add(new SqlParameter("@Nom", fournisseur.Nom));
@@ -99,7 +99,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "update Fournisseurs SET societe = @Societe, civilite = @Civilite, nom = @Nom, prenom = @Prenom, email = @Email, adresse = @Adresse, actif = @Actif where ID = @ID";
+            commande.CommandText = "UPDATE Fournisseurs SET societe = @Societe, civilite = @Civilite, nom = @Nom, prenom = @Prenom, email = @Email, adresse = @Adresse, actif = @Actif WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@Societe", fournisseur.Societe));
             commande.Parameters.Add(new SqlParameter("@Civilite", fournisseur.Civilite));
             commande.Parameters.Add(new SqlParameter("@Nom", fournisseur.Nom));
@@ -111,7 +111,7 @@ namespace Raminagrobis.DAL
 
             if (nombreDeLignesAffectees != 1)
             {
-                throw new Exception($"Impossible de mettre à jour le Fournisseurs d'ID {fournisseur.ID}");
+                throw new Exception($"Impossible de mettre à jour le Fournisseurs d'ID : {fournisseur.ID}");
             }
 
 
@@ -125,14 +125,14 @@ namespace Raminagrobis.DAL
         public override void Delete(Fournisseurs_DAL fournisseur)
         {
             CreerConnexionEtCommande();
-            commande.CommandText = "delete from Fournisseurs where ID = @ID";
+            commande.CommandText = "DELETE FROM Fournisseurs WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID", fournisseur.ID));
 
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees < 0)
             {
-                throw new Exception($"Impossible de mettre à jour le fournisseur d'ID {fournisseur.ID}");
+                throw new Exception($"Impossible de supprimer le fournisseur d'ID {fournisseur.ID}");
             }
             DetruireConnexionEtCommande();
         }

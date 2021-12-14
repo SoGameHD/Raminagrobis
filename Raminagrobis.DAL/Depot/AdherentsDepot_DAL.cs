@@ -14,7 +14,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select societe, civilite, nom, prenom, email, date_adhesion, actif from Adherents";
+            commande.CommandText = "SELECT societe, civilite, nom, prenom, email, date_adhesion, actif FROM Adherents";
             var reader = commande.ExecuteReader();
 
             var listeAdherents = new List<Adherent_DAL>();
@@ -44,7 +44,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID, societe, civilite, nom, prenom, email, date_adhesion, actif from Adherents where ID=@ID";
+            commande.CommandText = "SELECT ID, societe, civilite, nom, prenom, email, date_adhesion, actif FROM Adherents WHERE ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", ID));
             var reader = commande.ExecuteReader();
 
@@ -62,7 +62,7 @@ namespace Raminagrobis.DAL
             }
             else
             {
-                throw new Exception($"Aucune occurance à l'ID {ID} dans la table Adherents");
+                throw new Exception($"Aucune occurance de l'ID {ID} dans la table Adherents");
             }
 
             DetruireConnexionEtCommande();
@@ -76,7 +76,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into Adherents(societe, civilite, nom, prenom, email, date_adhesion, actif)" + " values (@Societe, @Civilite, @Nom, @Prenom, @Email, @Date_adhesion, @Actif); select scope_identity()";
+            commande.CommandText = "INSERT INTO Adherents(societe, civilite, nom, prenom, email, date_adhesion, actif) VALUES (@Societe, @Civilite, @Nom, @Prenom, @Email, @Date_adhesion, @Actif); SELECT SCOPE_IDENTITY()";
             commande.Parameters.Add(new SqlParameter("@Societe", adherent.Societe));
             commande.Parameters.Add(new SqlParameter("@Civilite", adherent.Civilite));
             commande.Parameters.Add(new SqlParameter("@Nom", adherent.Nom));
@@ -100,7 +100,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "update Adherents set societe=@Societe, civilite=@Civilite, nom=@Nom, prenom=@Prenom, email=@Email, date_adhesion=@Date_adhesion, actif=@Actif where ID=@ID";
+            commande.CommandText = "UPDATE Adherents SET societe=@Societe, civilite=@Civilite, nom=@Nom, prenom=@Prenom, email=@Email, date_adhesion=@Date_adhesion, actif=@Actif WHERE ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", adherent.ID));
             commande.Parameters.Add(new SqlParameter("@Societe", adherent.Societe));
             commande.Parameters.Add(new SqlParameter("@Civilite", adherent.Civilite));
@@ -114,7 +114,7 @@ namespace Raminagrobis.DAL
 
             if (nombreDeLignesAffectees != 1)
             {
-                throw new Exception($"Impossible de mettre à jour le point d'ID {adherent.ID}");
+                throw new Exception($"Impossible de mettre à jour l'Adherents d'ID : {adherent.ID}");
             }
 
             DetruireConnexionEtCommande();
@@ -128,13 +128,13 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "delete from Adherents where ID=@ID";
+            commande.CommandText = "DELETE FROM Adherents WHERE ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", adherent.ID));
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
             {
-                throw new Exception($"Impossible de supprimer le point d'ID {adherent.ID}");
+                throw new Exception($"Impossible de supprimer l'Adhérents d'ID {adherent.ID}");
             }
 
             DetruireConnexionEtCommande();

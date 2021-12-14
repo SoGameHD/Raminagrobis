@@ -14,7 +14,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select libelle from Paniers";
+            commande.CommandText = "SELECT libelle FROM Paniers";
             var reader = commande.ExecuteReader();
 
             var listeProduits = new List<Paniers_DAL>();
@@ -37,7 +37,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID, libelle from Paniers where ID=@ID";
+            commande.CommandText = "SELECT ID, libelle FROM Paniers WHERE ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", ID));
             var reader = commande.ExecuteReader();
 
@@ -64,7 +64,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into Paniers(libelle)" + " values ( @Libelle); select scope_identity()";
+            commande.CommandText = "INSERT INTO Paniers(libelle) VALUES ( @Libelle); SELECT SCOPE_IDENTITY()";
             commande.Parameters.Add(new SqlParameter("@Libelle", paniers.Libelle));
 
             var ID = Convert.ToInt32((decimal)commande.ExecuteScalar());
@@ -82,7 +82,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "update Paniers SET libelle = @Libelle where ID = @ID";
+            commande.CommandText = "UPDATE Paniers SET libelle = @Libelle WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@Libelle", paniers.Libelle));
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
@@ -102,14 +102,14 @@ namespace Raminagrobis.DAL
         public override void Delete(Paniers_DAL paniers)
         {
             CreerConnexionEtCommande();
-            commande.CommandText = "delete from Paniers where ID = @ID";
+            commande.CommandText = "DELETE FROM Paniers WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID", paniers.ID));
 
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees < 0)
             {
-                throw new Exception($"Impossible de mettre à jour le produit d'ID {paniers.ID}");
+                throw new Exception($"Impossible de supprimer le produit d'ID {paniers.ID}");
             }
             DetruireConnexionEtCommande();
         }

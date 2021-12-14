@@ -14,7 +14,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select prix from Propositions";
+            commande.CommandText = "SELECT prix FROM Propositions";
             var reader = commande.ExecuteReader();
 
             var listePropositions = new List<Propositions_DAL>();
@@ -44,7 +44,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID_ligne_global, id_fournisseur, prix from Propositions where ID_ligne_global=@ID_ligne_global";
+            commande.CommandText = "SELECT ID_ligne_global, ID_fournisseur, prix FROM Propositions WHERE ID_ligne_global=@ID_ligne_global";
             commande.Parameters.Add(new SqlParameter("@ID_ligne_global", ID_ligne_global));
             var reader = commande.ExecuteReader();
 
@@ -74,7 +74,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID_ligne_global, id_fournisseur, prix from Propositions where ID_fournisseur=@ID_fournisseur";
+            commande.CommandText = "SELECT ID_ligne_global, id_fournisseur, prix FROM Propositions WHERE ID_fournisseur=@ID_fournisseur";
             commande.Parameters.Add(new SqlParameter("@ID_fournisseur", ID_fournisseur));
             var reader = commande.ExecuteReader();
 
@@ -104,7 +104,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into Propositions (id_ligne_global, id_fournisseur, prix)" + " values (@ID_ligne_global, @ID_fournisseur, @prix); select scope_identity()";
+            commande.CommandText = "INSERT INTO Propositions (id_ligne_global, id_fournisseur, prix) VALUES (@ID_ligne_global, @ID_fournisseur, @prix); SELECT SCOPE_IDENTITY()";
             commande.Parameters.Add(new SqlParameter("@ID_adherent", propositions.ID_ligne_global));
             commande.Parameters.Add(new SqlParameter("@ID_panier", propositions.ID_fournisseur));
             commande.Parameters.Add(new SqlParameter("@Prix", propositions.Prix));
@@ -120,7 +120,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "update Commandes SET prix = @Prix where ID_ligne_global = @ID_ligne_global and ID_fournisseur = @ID_fournisseur";
+            commande.CommandText = "UPDATE Commandes SET prix = @Prix WHERE ID_ligne_global = @ID_ligne_global AND ID_fournisseur = @ID_fournisseur";
             commande.Parameters.Add(new SqlParameter("@Prix", propositions.Prix));
             commande.Parameters.Add(new SqlParameter("@ID_ligne_global", propositions.ID_ligne_global));
             commande.Parameters.Add(new SqlParameter("@ID_fournisseur", propositions.ID_fournisseur));

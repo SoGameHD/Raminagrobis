@@ -14,7 +14,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select id_ligne_global, quantite from LignesAdherents";
+            commande.CommandText = "SELECT id_ligne_global, quantite FROM LignesAdherents";
             var reader = commande.ExecuteReader();
 
             var listeAdherents = new List<LignesAdherents_DAL>();
@@ -46,7 +46,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID_produit, ID_commande, id_ligne_globale, quantite from LignesAdherent where ID_produit=@ID_produits";
+            commande.CommandText = "SELECT ID_produit, ID_commande, id_ligne_globale, quantite FROM LignesAdherent WHERE ID_produit=@ID_produits";
             commande.Parameters.Add(new SqlParameter("@ID_produit", ID_produit));
             var reader = commande.ExecuteReader();
 
@@ -74,7 +74,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID_produit, ID_commande, id_ligne_globale, quantite from LignesAdherent where ID_commande=@ID_commande";
+            commande.CommandText = "SELECT ID_produit, ID_commande, id_ligne_globale, quantite FROM LignesAdherent WHERE ID_commande=@ID_commande";
             commande.Parameters.Add(new SqlParameter("@ID_commande", ID_commande));
             var reader = commande.ExecuteReader();
 
@@ -102,7 +102,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into LignesAdherent (id_produit, id_commande, id_ligne_global, quantite)" + " values (@ID_produit, @ID_commande, @ID_ligne_global, @Quantite); select scope_identity()";
+            commande.CommandText = "INSERT INTO LignesAdherent (id_produit, id_commande, id_ligne_global, quantite) VALUES (@ID_produit, @ID_commande, @ID_ligne_global, @Quantite); SELECT SCOPE_IDENTITY()";
             commande.Parameters.Add(new SqlParameter("@ID_produit", lignesAdherent.ID_produit));
             commande.Parameters.Add(new SqlParameter("@ID_commande", lignesAdherent.ID_commande));
             commande.Parameters.Add(new SqlParameter("@ID_ligne_global", lignesAdherent.ID_ligne_global));
@@ -119,7 +119,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "update LignesAdherent SET id_ligne_global = @ID_ligne_global, quantite = @Quantite where ID_produit = @ID_produit and ID_commande = @ID_commande";
+            commande.CommandText = "UPDATE LignesAdherent SET id_ligne_global = @ID_ligne_global, quantite = @Quantite WHERE ID_produit = @ID_produit AND ID_commande = @ID_commande";
             commande.Parameters.Add(new SqlParameter("@ID_ligne_global", lignesAdherent.ID_ligne_global));
             commande.Parameters.Add(new SqlParameter("@Quantite", lignesAdherent.Quantite));
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();

@@ -21,7 +21,7 @@ namespace Raminagrobis.DAL
             using (var commande = new SqlCommand())
             {
                 commande.Connection = connexion;
-                commande.CommandText = "insert into Liaison(id_produit, id_fournisseur)" + " values(@ID_produit, @ID_fournisseur); SELECT SCOPE_IDENTITY()";
+                commande.CommandText = "INSERT INTO Liaison(id_produit, id_fournisseur)" + " VALUES(@ID_produit, @ID_fournisseur); SELECT SCOPE_IDENTITY()";
 
                 commande.Parameters.Add(new SqlParameter("@ID_produit", ID_produit));
                 commande.Parameters.Add(new SqlParameter("@ID_fournisseur", ID_fournisseur));

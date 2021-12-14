@@ -25,7 +25,7 @@ namespace Raminagrobis.DAL
             using (var commande = new SqlCommand())
             {
                 commande.Connection = connexion;
-                commande.CommandText = "insert into LignesAdherent(id_ligne_global, quantite)" + " values(@ID_ligne_global, @Quantite); SELECT SCOPE_IDENTITY()";
+                commande.CommandText = "INSERT INTO LignesAdherent(id_ligne_global, quantite)" + " VALUES(@ID_ligne_global, @Quantite); SELECT SCOPE_IDENTITY()";
 
                 commande.Parameters.Add(new SqlParameter("@ID_ligne_global", ID_ligne_global));
                 commande.Parameters.Add(new SqlParameter("@Quantite", Quantite));

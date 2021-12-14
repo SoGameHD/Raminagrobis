@@ -14,7 +14,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select reference, libelle, marque, actif from Produits";
+            commande.CommandText = "SELECT reference, libelle, marque, actif FROM Produits";
             var reader = commande.ExecuteReader();
 
             var listeProduits = new List<Produits_DAL>();
@@ -41,7 +41,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID, reference, libelle, marque, actif from Produits where ID=@ID";
+            commande.CommandText = "SELECT ID, reference, libelle, marque, actif FROM Produits WHERE ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", ID));
             var reader = commande.ExecuteReader();
 
@@ -73,7 +73,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into Produits(reference, libelle, marque, actif)" + " values (@Reference, @Libelle, @Marque, @Actif); select scope_identity()";
+            commande.CommandText = "INSERT INTO Produits(reference, libelle, marque, actif) VALUES (@Reference, @Libelle, @Marque, @Actif); SELECT SCOPE_IDENTITY()";
             commande.Parameters.Add(new SqlParameter("@Reference", produits.Reference));
             commande.Parameters.Add(new SqlParameter("@Libelle", produits.Libelle));
             commande.Parameters.Add(new SqlParameter("@Marque", produits.Marque));
@@ -94,7 +94,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "update Produits SET reference = @Reference, libelle = @Libelle, marque = @Marque, actif = @Actif where ID = @ID";
+            commande.CommandText = "UPDATE Produits SET reference = @Reference, libelle = @Libelle, marque = @Marque, actif = @Actif WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@Reference", produits.Reference));
             commande.Parameters.Add(new SqlParameter("@Libelle", produits.Libelle));
             commande.Parameters.Add(new SqlParameter("@Marque", produits.Marque));
@@ -117,14 +117,14 @@ namespace Raminagrobis.DAL
         public override void Delete(Produits_DAL produits)
         {
             CreerConnexionEtCommande();
-            commande.CommandText = "delete from Produits where ID = @ID";
+            commande.CommandText = "DELETE FROM Produits WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID", produits.ID));
 
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees < 0)
             {
-                throw new Exception($"Impossible de mettre à jour le produit d'ID {produits.ID}");
+                throw new Exception($"Impossible de supprimer le produit d'ID {produits.ID}");
             }
             DetruireConnexionEtCommande();
         }

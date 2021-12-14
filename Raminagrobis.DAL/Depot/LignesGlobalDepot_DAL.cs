@@ -14,7 +14,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select id_panier, quantite, id_produit from LignesGlobal";
+            commande.CommandText = "SELECT id_panier, quantite, id_produit FROM LignesGlobal";
             var reader = commande.ExecuteReader();
 
             var listeGlobal = new List<LignesGlobal_DAL>();
@@ -40,7 +40,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "select ID, id_panier, quantite, id_produit from LignesGlobal where ID=@ID";
+            commande.CommandText = "SELECT ID, id_panier, quantite, id_produit FROM LignesGlobal WHERE ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", ID));
             var reader = commande.ExecuteReader();
 
@@ -69,7 +69,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "insert into LignesGlobal(id_panier, quantite, id_produit)" + " values (@ID_panier, @Quantite, @ID_produit); select scope_identity()";
+            commande.CommandText = "INSERT INTO LignesGlobal(id_panier, quantite, id_produit) VALUES (@ID_panier, @Quantite, @ID_produit); SELECT SCOPE_IDENTITY()";
             commande.Parameters.Add(new SqlParameter("@ID_panier", lignesGlobal.ID_panier));
             commande.Parameters.Add(new SqlParameter("@Quantite", lignesGlobal.Quantite));
             commande.Parameters.Add(new SqlParameter("@ID_produit", lignesGlobal.ID_produit));
@@ -89,7 +89,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "update LignesGlobal SET id_panier = @ID_panier, quantite = @Quantite, id_produit = @ID_produit where ID = @ID";
+            commande.CommandText = "UPDATE LignesGlobal SET id_panier = @ID_panier, quantite = @Quantite, id_produit = @ID_produit WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID_panier", lignesGlobal.ID_panier));
             commande.Parameters.Add(new SqlParameter("@Quantite", lignesGlobal.Quantite));
             commande.Parameters.Add(new SqlParameter("@ID_produit", lignesGlobal.ID_produit));
@@ -111,14 +111,14 @@ namespace Raminagrobis.DAL
         public override void Delete(LignesGlobal_DAL lignesGlobal)
         {
             CreerConnexionEtCommande();
-            commande.CommandText = "delete from LignesGlobal where ID = @ID";
+            commande.CommandText = "DELETE FROM LignesGlobal WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID", lignesGlobal.ID));
 
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees < 0)
             {
-                throw new Exception($"Impossible de mettre à jour la LignesGlobal d'ID {lignesGlobal.ID}");
+                throw new Exception($"Impossible de supprimer la LignesGlobal d'ID : {lignesGlobal.ID}");
             }
             DetruireConnexionEtCommande();
         }
