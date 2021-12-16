@@ -12,7 +12,7 @@ namespace Raminagrobis.METIER.Services
     public class Produits_Services
     {
         #region GetAll
-        public static List<Produits_METIER> GetAll()
+        public List<Produits_METIER> GetAll()
         {
             var result = new List<Produits_METIER>();
             var depot = new ProduitsDepot_DAL();
@@ -25,7 +25,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region GetByID
-        public static Produits_METIER GetByID(int id)
+        public Produits_METIER GetByID(int id)
         {
             var depot = new ProduitsDepot_DAL();
             var produits = depot.GetByID(id);
@@ -34,7 +34,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Insert
-        public static void Insert(Produits_DTO input)
+        public void Insert(Produits_DTO input)
         {
             var produits = new Produits_DAL(input.Reference, input.Libelle, input.Marque, input.Actif);
             var depot = new ProduitsDepot_DAL();
@@ -43,7 +43,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Edit
-        public static void Edit(int id, Produits_DTO input)
+        public void Edit(int id, Produits_DTO input)
         {
             var produits = new Produits_DAL(id, input.Reference, input.Libelle, input.Marque, input.Actif);
             var depot = new ProduitsDepot_DAL();
@@ -52,7 +52,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Delete
-        public static void Delete(int id)
+        public void Delete(int id)
         {
             Fournisseurs_DAL produits;
             FournisseursDepot_DAL depot = new FournisseursDepot_DAL();

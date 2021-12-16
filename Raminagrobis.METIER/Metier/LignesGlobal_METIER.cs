@@ -7,7 +7,7 @@ using Raminagrobis.DAL;
 
 namespace Raminagrobis.METIER
 {
-    class LignesGlobal_METIER
+    public class LignesGlobal_METIER
     {
         public int ID_panier { get; set; }
         public int Quantite { get; set; }
