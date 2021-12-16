@@ -36,7 +36,8 @@ namespace Raminagrobis.API
 
             services.AddSingleton(typeof(Adherents_Services), new Adherents_Services());
             services.AddSingleton(typeof(Fournisseurs_Services), new Fournisseurs_Services());
-            services.AddSingleton(typeof(Paniers_Se), new Paniers_Services());
+            services.AddSingleton(typeof(Paniers_Services), new Paniers_Services());
+            services.AddSingleton(typeof(Produits_Services), new Produits_Services());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
