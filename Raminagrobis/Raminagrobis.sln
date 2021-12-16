@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raminagrobis.DAL", "..\Raminagrobis.DAL\Raminagrobis.DAL.csproj", "{15225655-17C7-457D-98B3-594675F43DDB}"
 EndProject
@@ -9,6 +9,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raminagrobis.DTO", "..\RaminagrobisDTO\Raminagrobis.DTO.csproj", "{9BD28D54-E6B1-4C98-B49C-CAE7FB0A1881}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raminagrobis.METIER", "..\Raminagrobis.Metier\Raminagrobis.METIER.csproj", "{A729D737-514A-443C-814F-94D5C8676DCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raminagrobis.API", "..\Raminagrobis.API\Raminagrobis.API.csproj", "{81D91285-6726-44E0-99E5-2FFBC1BB81C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{A729D737-514A-443C-814F-94D5C8676DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A729D737-514A-443C-814F-94D5C8676DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A729D737-514A-443C-814F-94D5C8676DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D91285-6726-44E0-99E5-2FFBC1BB81C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D91285-6726-44E0-99E5-2FFBC1BB81C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D91285-6726-44E0-99E5-2FFBC1BB81C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D91285-6726-44E0-99E5-2FFBC1BB81C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
