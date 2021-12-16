@@ -9,7 +9,7 @@ using Raminagrobis.METIER;
 
 namespace Raminagrobis.METIER.Services
 {
-    class Produits_Services
+    public class Produits_Services
     {
         #region GetAll
         public static List<Produits_METIER> GetAll()
