@@ -21,9 +21,12 @@ namespace Raminagrobis.API.Controllers
         [HttpGet]
         public IEnumerable<Adherent_DTO> GetAll()
         {
-            return service.GetAll().Select(t => new Adherent_DTO()
+            return service.GetAll().Select(item => new Adherent_DTO()
             {
-                ID = t.ID,
+                ID = item.ID,
+                Societe = item.Societe,
+                Civilite = item.Civilite,
+
             });
         }
     }
