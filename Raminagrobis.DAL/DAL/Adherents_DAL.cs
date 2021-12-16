@@ -29,7 +29,7 @@ namespace Raminagrobis.DAL
             using (var commande = new SqlCommand())
             {
                 commande.Connection = connexion;
-                commande.CommandText = "INSERT INTO Adherents(societe, civilite, nom, prenom, email, date_adhesion, actif)" + " VALUES (@Societe, @Civilite, @Nom, @Prenom, @Email, @Date_adhesion, @actif); select scope_identity()";
+                commande.CommandText = "INSERT INTO Adherents(societe, civilite, nom, prenom, email, date_adhesion, actif) VALUES (@Societe, @Civilite, @Nom, @Prenom, @Email, @Date_adhesion, @actif); SELECT SCOPE_IDENTITY()";
 
                 commande.Parameters.Add(new SqlParameter("@Societe", Societe));
                 commande.Parameters.Add(new SqlParameter("@Civilite", Civilite));

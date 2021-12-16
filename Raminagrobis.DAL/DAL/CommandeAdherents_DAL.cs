@@ -24,7 +24,7 @@ namespace Raminagrobis.DAL
             using (var commande = new SqlCommand())
             {
                 commande.Connection = connexion;
-                commande.CommandText = "INSERT INTO Commande(id_adherent, id_panier)" + " VALUES(@ID_adherent, @ID_panier); SELECT SCOPE_IDENTITY()";
+                commande.CommandText = "INSERT INTO Commande(id_adherent, id_panier) VALUES (@ID_adherent, @ID_panier); SELECT SCOPE_IDENTITY()";
 
                 commande.Parameters.Add(new SqlParameter("@ID_adherent", ID_adherent));
                 commande.Parameters.Add(new SqlParameter("@ID_panier", ID_panier));
