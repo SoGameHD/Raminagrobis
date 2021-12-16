@@ -17,7 +17,7 @@ namespace Raminagrobis.METIER
         public DateTime Date_adhesion { get; set; }
         public Boolean Actif { get; set; }
 
-        private int ID { get; set; }
+        public int ID { get; set; }
         public Adherents_METIER(string societe, bool civilite, string nom, string prenom, string email, DateTime dateAdhesion, Boolean actif) => (Societe, Civilite, Nom, Prenom, Email, Date_adhesion, Actif) = (societe, civilite, nom, prenom, email, dateAdhesion, actif);
         public Adherents_METIER(int id, string societe, bool civilite, string nom, string prenom, string email, DateTime dateAdhesion, Boolean actif) => (ID, Societe, Civilite, Nom, Prenom, Email, Date_adhesion, Actif) = (id, societe, civilite, nom, prenom, email, dateAdhesion, actif);
 

@@ -14,7 +14,7 @@ namespace Raminagrobis.METIER.Services
         private FournisseursDepot_DAL depot = new FournisseursDepot_DAL();
 
         #region GetAll
-        public static List<Fournisseurs_METIER> GetAll()
+        public List<Fournisseurs_METIER> GetAll()
         {
             var result = new List<Fournisseurs_METIER>();
             var depot = new FournisseursDepot_DAL();
@@ -27,7 +27,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region GetByID
-        public static Fournisseurs_METIER GetByID(int id)
+        public Fournisseurs_METIER GetByID(int id)
         {
             var depot = new FournisseursDepot_DAL();
             var fournisseurs = depot.GetByID(id);
@@ -36,7 +36,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Insert
-        public static void Insert(Fournisseur_DTO input)
+        public void Insert(Fournisseur_DTO input)
         {
             var fournisseurs = new Fournisseurs_DAL(input.Societe, input.Civilite, input.Nom, input.Prenom, input.Email, input.Adresse, input.Actif);
             var depot = new FournisseursDepot_DAL();
@@ -45,7 +45,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Edit
-        public static void Edit(int id, Fournisseur_DTO input)
+        public void Edit(int id, Fournisseur_DTO input)
         {
             var fournisseurs = new Fournisseurs_DAL(id, input.Societe, input.Civilite, input.Nom, input.Prenom, input.Email, input.Adresse, input.Actif);
             var depot = new FournisseursDepot_DAL();
@@ -54,7 +54,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Delete
-        public static void Delete(int id)
+        public void Delete(int id)
         {
             Fournisseurs_DAL fournisseurs;
             FournisseursDepot_DAL depot = new FournisseursDepot_DAL();

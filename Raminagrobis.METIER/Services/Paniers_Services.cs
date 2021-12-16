@@ -12,7 +12,7 @@ namespace Raminagrobis.METIER.Services
     public class Paniers_Services
     {
         #region GetAll
-        public static List<Paniers_METIER> GetAll()
+        public List<Paniers_METIER> GetAll()
         {
             var result = new List<Paniers_METIER>();
             var depot = new PaniersDepot_DAL();
@@ -25,7 +25,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region GetByID
-        public static Fournisseurs_METIER GetByID(int id)
+        public Fournisseurs_METIER GetByID(int id)
         {
             var depot = new FournisseursDepot_DAL();
             var adherent = depot.GetByID(id);
@@ -34,7 +34,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Insert
-        public static void Insert(Paniers_DTO input)
+        public void Insert(Paniers_DTO input)
         {
             var paniers = new Paniers_DAL(input.Libelle);
             var depot = new PaniersDepot_DAL();
@@ -43,7 +43,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Edit
-        public static void Edit(int id, Paniers_DTO input)
+        public void Edit(int id, Paniers_DTO input)
         {
             var paniers = new Paniers_DAL(id, input.Libelle);
             var depot = new PaniersDepot_DAL();
@@ -52,7 +52,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Delete
-        public static void Delete(int id)
+        public void Delete(int id)
         {
             Paniers_DAL paniers;
             PaniersDepot_DAL depot = new PaniersDepot_DAL();

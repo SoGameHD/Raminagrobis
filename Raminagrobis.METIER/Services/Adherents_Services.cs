@@ -12,7 +12,7 @@ namespace Raminagrobis.METIER.Services
     public class Adherents_Services
     {
         #region GetAll
-        public static List<Adherents_METIER> GetAll()
+        public List<Adherents_METIER> GetAll()
         {
             var result = new List<Adherents_METIER>();
             var depot = new AdherentDepot_DAL();
@@ -25,7 +25,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region GetByID
-        public static Adherents_METIER GetByID(int id)
+        public Adherents_METIER GetByID(int id)
         {
             var depot = new AdherentDepot_DAL();
             var adherent = depot.GetByID(id);
@@ -34,7 +34,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Insert
-        public static void Insert(Adherent_DTO input)
+        public void Insert(Adherent_DTO input)
         {
             var adherent = new Adherent_DAL(input.Societe, input.Civilite, input.Nom, input.Prenom, input.Email, input.Date_adhesion, input.Actif);
             var depot = new AdherentDepot_DAL();
@@ -43,7 +43,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Edit
-        public static void Edit(int id, Adherent_DTO input)
+        public void Edit(int id, Adherent_DTO input)
         {
             var adherent = new Adherent_DAL(id, input.Societe, input.Civilite, input.Nom, input.Prenom, input.Email, input.Date_adhesion, input.Actif);
             var depot = new AdherentDepot_DAL();
@@ -52,7 +52,7 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region Delete
-        public static void Delete(int id)
+        public void Delete(int id)
         {
             Adherent_DAL adherent;
             AdherentDepot_DAL depot = new AdherentDepot_DAL();
