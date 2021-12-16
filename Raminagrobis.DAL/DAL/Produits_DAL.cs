@@ -26,7 +26,7 @@ namespace Raminagrobis.DAL
             using (var commande = new SqlCommand())
             {
                 commande.Connection = connexion;
-                commande.CommandText = "INSERT INTO Produits(reference, libelle, marque, actif)" + " VALUES(@Reference, @Libelle, @Marque, @Actif); SELECT SCOPE_IDENTITY()";
+                commande.CommandText = "INSERT INTO Produits(reference, libelle, marque, actif) VALUES (@Reference, @Libelle, @Marque, @Actif); SELECT SCOPE_IDENTITY()";
 
                 commande.Parameters.Add(new SqlParameter("@Reference", Reference));
                 commande.Parameters.Add(new SqlParameter("@Libelle", Libelle));

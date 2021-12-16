@@ -8,13 +8,13 @@ namespace Raminagrobis.DTO
 {
     public class Adherent_DTO
     {
-        public string Societe { get; private set; }
-        public Boolean Civilite { get; private set; }
-        public string Nom { get; private set; }
-        public string Prenom { get; private set; }
-        public string Email { get; private set; }
-        public DateTime Date_adhesion { get; private set; }
-        public Boolean Actif { get; private set; }
+        public string Societe { get; set; }
+        public Boolean Civilite { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public string Email { get; set; }
+        public DateTime Date_adhesion { get; set; }
+        public Boolean Actif { get; set; }
         public int? ID { get; set; }
     }
 }

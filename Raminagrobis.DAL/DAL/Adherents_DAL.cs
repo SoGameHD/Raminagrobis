@@ -9,13 +9,13 @@ namespace Raminagrobis.DAL
 {
     public class Adherent_DAL
     {
-        public string Societe { get; private set; }
-        public Boolean Civilite { get; private set; }
-        public string Nom { get; private set; }
-        public string Prenom { get; private set; }
-        public string Email { get; private set; }
-        public DateTime Date_adhesion { get; private set; }
-        public Boolean Actif { get; private set; }
+        public string Societe { get; set; }
+        public Boolean Civilite { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public string Email { get; set; }
+        public DateTime Date_adhesion { get; set; }
+        public Boolean Actif { get; set; }
         public int ID { get; set; }
 
         public Adherent_DAL(string societe, Boolean civilite, string nom, string prenom, string email, DateTime date_adhesion, Boolean actif) => (Societe, Civilite, Nom, Prenom, Email, Date_adhesion, Actif) = (societe, civilite, nom, prenom, email, date_adhesion, actif);
@@ -29,7 +29,7 @@ namespace Raminagrobis.DAL
             using (var commande = new SqlCommand())
             {
                 commande.Connection = connexion;
-                commande.CommandText = "INSERT INTO Adherents(societe, civilite, nom, prenom, email, date_adhesion, actif)" + " VALUES (@Societe, @Civilite, @Nom, @Prenom, @Email, @Date_adhesion, @actif); select scope_identity()";
+                commande.CommandText = "INSERT INTO Adherents(societe, civilite, nom, prenom, email, date_adhesion, actif) VALUES (@Societe, @Civilite, @Nom, @Prenom, @Email, @Date_adhesion, @actif); SELECT SCOPE_IDENTITY()";
 
                 commande.Parameters.Add(new SqlParameter("@Societe", Societe));
                 commande.Parameters.Add(new SqlParameter("@Civilite", Civilite));
