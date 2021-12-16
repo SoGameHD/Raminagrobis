@@ -9,7 +9,7 @@ using Raminagrobis.DTO;
 
 namespace Raminagrobis.METIER.Services
 {
-    class Paniers_Services
+    public class Paniers_Services
     {
         #region GetAll
         public static List<Paniers_METIER> GetAll()
