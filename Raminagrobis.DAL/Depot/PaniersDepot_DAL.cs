@@ -45,7 +45,9 @@ namespace Raminagrobis.DAL
 
             if (reader.Read())
             {
-                listePaniers = new Paniers_DAL(reader.GetString(0));
+                listePaniers = new Paniers_DAL(reader.GetInt32(0),
+                                    reader.GetString(1)
+                                    );
             }
             else
             {
@@ -83,6 +85,7 @@ namespace Raminagrobis.DAL
             CreerConnexionEtCommande();
 
             commande.CommandText = "UPDATE Paniers SET libelle = @Libelle WHERE ID = @ID";
+            commande.Parameters.Add(new SqlParameter("@ID", paniers.ID));
             commande.Parameters.Add(new SqlParameter("@Libelle", paniers.Libelle));
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
@@ -90,7 +93,6 @@ namespace Raminagrobis.DAL
             {
                 throw new Exception($"Impossible de mettre à jour le Paniers d'ID {paniers.ID}");
             }
-
 
             DetruireConnexionEtCommande();
 

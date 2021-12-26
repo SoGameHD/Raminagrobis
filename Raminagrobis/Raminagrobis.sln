@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raminagrobis.DAL", "..\Raminagrobis.DAL\Raminagrobis.DAL.csproj", "{15225655-17C7-457D-98B3-594675F43DDB}"
 EndProject
@@ -9,6 +9,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raminagrobis.DTO", "..\RaminagrobisDTO\Raminagrobis.DTO.csproj", "{9BD28D54-E6B1-4C98-B49C-CAE7FB0A1881}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raminagrobis.METIER", "..\Raminagrobis.Metier\Raminagrobis.METIER.csproj", "{A729D737-514A-443C-814F-94D5C8676DCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8C88CCC6-4623-459E-9FE4-6FC72A06DBA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raminagrobis.DAL.Tests", "..\Raminagrobis.DAL.Tests\Raminagrobis.DAL.Tests.csproj", "{AB927DB6-684E-4511-8C63-B75C8DFAFF17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,9 +36,16 @@ Global
 		{A729D737-514A-443C-814F-94D5C8676DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A729D737-514A-443C-814F-94D5C8676DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A729D737-514A-443C-814F-94D5C8676DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB927DB6-684E-4511-8C63-B75C8DFAFF17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB927DB6-684E-4511-8C63-B75C8DFAFF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB927DB6-684E-4511-8C63-B75C8DFAFF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB927DB6-684E-4511-8C63-B75C8DFAFF17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB927DB6-684E-4511-8C63-B75C8DFAFF17} = {8C88CCC6-4623-459E-9FE4-6FC72A06DBA1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DF759D9-37EC-437A-8025-19167FF5091A}
