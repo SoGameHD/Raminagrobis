@@ -14,15 +14,16 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "SELECT id_adherent, id_panier FROM Commandes";
+            commande.CommandText = "SELECT id, id_adherent, id_panier FROM Commandes";
             var reader = commande.ExecuteReader();
 
             var listeCommande = new List<CommandeAdherents_DAL>();
 
             while (reader.Read())
             {
-                var commande = new CommandeAdherents_DAL(reader.GetInt16(0),
-                                            reader.GetInt16(1)
+                var commande = new CommandeAdherents_DAL(reader.GetInt32(0),
+                                            reader.GetInt32(1),
+                                            reader.GetInt32(2)
                                             );
 
                 listeCommande.Add(commande);
