@@ -42,8 +42,8 @@ namespace Raminagrobis.METIER.Services
         }
         #endregion
 
-        #region Edit
-        public void Edit(int id, Paniers_DTO input)
+        #region Update
+        public void Update(int id, Paniers_DTO input)
         {
             var paniers = new Paniers_DAL(id, input.Libelle);
             var depot = new PaniersDepot_DAL();

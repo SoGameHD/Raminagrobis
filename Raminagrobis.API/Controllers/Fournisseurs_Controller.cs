@@ -9,20 +9,20 @@ namespace Raminagrobis.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class Adherents_Controller : ControllerBase
+    public class Fournisseurs_Controller : ControllerBase
     {
-        private Adherents_Services service;
+        private Fournisseurs_Services service;
 
-        public Adherents_Controller(Adherents_Services srv)
+        public Fournisseurs_Controller(Fournisseurs_Services srv)
         {
             service = srv;
         }
 
         #region GetAll
         [HttpGet]
-        public IEnumerable<Adherent_DTO> GetAll()
+        public IEnumerable<Fournisseur_DTO> GetAll()
         {
-            return service.GetAll().Select(item => new Adherent_DTO()
+            return service.GetAll().Select(item => new Fournisseur_DTO()
             {
                 ID = item.ID,
                 Societe = item.Societe,
@@ -30,7 +30,7 @@ namespace Raminagrobis.API.Controllers
                 Nom = item.Nom,
                 Prenom = item.Prenom,
                 Email = item.Email,
-                Date_adhesion = item.Date_adhesion,
+                Adresse = item.Adresse,
                 Actif = item.Actif,
             });
         }
@@ -38,10 +38,10 @@ namespace Raminagrobis.API.Controllers
 
         #region GetByID
         [HttpGet("{id}")]
-        public Adherent_DTO GetByID(int id)
+        public Fournisseur_DTO GetByID(int id)
         {
             var item = service.GetByID(id);
-            return new Adherent_DTO()
+            return new Fournisseur_DTO()
             {
                 ID = item.ID,
                 Societe = item.Societe,
@@ -49,7 +49,7 @@ namespace Raminagrobis.API.Controllers
                 Nom = item.Nom,
                 Prenom = item.Prenom,
                 Email = item.Email,
-                Date_adhesion = item.Date_adhesion,
+                Adresse = item.Adresse,
                 Actif = item.Actif,
             };
         }
@@ -57,15 +57,15 @@ namespace Raminagrobis.API.Controllers
 
         #region Insert
         [HttpPost]
-        public void Insert([FromBody] Adherent_DTO item)
+        public void Insert([FromBody] Fournisseur_DTO item)
         {
             service.Insert(item);
         }
         #endregion
 
         #region Update
-        [HttpPut("{id}")]
-        public void Update(int id, [FromBody] Adherent_DTO item)
+        [HttpPut]
+        public void Update (int id, [FromBody] Fournisseur_DTO item)
         {
             service.Update(id, item);
         }
@@ -73,7 +73,7 @@ namespace Raminagrobis.API.Controllers
 
         #region Delete
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete( int id)
         {
             service.Delete(id);
         }
