@@ -104,9 +104,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "INSERT INTO Propositions (id_ligne_global, id_fournisseur, prix) VALUES (@ID_ligne_global, @ID_fournisseur, @prix); SELECT SCOPE_IDENTITY()";
-            commande.Parameters.Add(new SqlParameter("@ID_adherent", propositions.ID_ligne_global));
-            commande.Parameters.Add(new SqlParameter("@ID_panier", propositions.ID_fournisseur));
+            commande.CommandText = "INSERT INTO Propositions (prix) VALUES (@prix); SELECT SCOPE_IDENTITY()";
             commande.Parameters.Add(new SqlParameter("@Prix", propositions.Prix));
 
             DetruireConnexionEtCommande();
@@ -120,7 +118,7 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "UPDATE Commandes SET prix = @Prix WHERE ID_ligne_global = @ID_ligne_global AND ID_fournisseur = @ID_fournisseur";
+            commande.CommandText = "UPDATE Propositions SET prix = @Prix WHERE ID_ligne_global = @ID_ligne_global AND ID_fournisseur = @ID_fournisseur";
             commande.Parameters.Add(new SqlParameter("@Prix", propositions.Prix));
             commande.Parameters.Add(new SqlParameter("@ID_ligne_global", propositions.ID_ligne_global));
             commande.Parameters.Add(new SqlParameter("@ID_fournisseur", propositions.ID_fournisseur));

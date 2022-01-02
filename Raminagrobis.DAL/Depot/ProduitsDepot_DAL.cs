@@ -49,7 +49,7 @@ namespace Raminagrobis.DAL
 
             if (reader.Read())
             {
-                listeProduits = new Produits_DAL(reader.GetInt16(0),
+                listeProduits = new Produits_DAL(reader.GetInt32(0),
                                         reader.GetString(1),
                                         reader.GetString(2),
                                         reader.GetString(3),
@@ -99,6 +99,7 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@Libelle", produits.Libelle));
             commande.Parameters.Add(new SqlParameter("@Marque", produits.Marque));
             commande.Parameters.Add(new SqlParameter("@Actif", produits.Actif));
+            commande.Parameters.Add(new SqlParameter("@ID", produits.ID));
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)

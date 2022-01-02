@@ -50,7 +50,8 @@ namespace Raminagrobis.DAL
             {
                 listeGlobal = new LignesGlobal_DAL(reader.GetInt32(0),
                                         reader.GetInt32(1),
-                                        reader.GetInt32(2)
+                                        reader.GetInt32(2),
+                                        reader.GetInt32(3)
                                         );
             }
             else
@@ -93,6 +94,7 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@ID_panier", lignesGlobal.ID_panier));
             commande.Parameters.Add(new SqlParameter("@Quantite", lignesGlobal.Quantite));
             commande.Parameters.Add(new SqlParameter("@ID_produit", lignesGlobal.ID_produit));
+            commande.Parameters.Add(new SqlParameter("@ID", lignesGlobal.ID));
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)

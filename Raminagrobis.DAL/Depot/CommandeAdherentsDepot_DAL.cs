@@ -14,15 +14,16 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "SELECT id_adherent, id_panier FROM Commandes";
+            commande.CommandText = "SELECT id, id_adherent, id_panier FROM Commandes";
             var reader = commande.ExecuteReader();
 
             var listeCommande = new List<CommandeAdherents_DAL>();
 
             while (reader.Read())
             {
-                var commande = new CommandeAdherents_DAL(reader.GetInt16(0),
-                                            reader.GetInt16(1)
+                var commande = new CommandeAdherents_DAL(reader.GetInt32(0),
+                                            reader.GetInt32(1),
+                                            reader.GetInt32(2)
                                             );
 
                 listeCommande.Add(commande);
@@ -47,8 +48,9 @@ namespace Raminagrobis.DAL
 
             if (reader.Read())
             {
-                listeCommande = new CommandeAdherents_DAL(reader.GetInt16(0),
-                                            reader.GetInt16(1)
+                listeCommande = new CommandeAdherents_DAL(reader.GetInt32(0),
+                                            reader.GetInt32(1),
+                                            reader.GetInt32(2)
                                             );
             }
             else
@@ -88,6 +90,7 @@ namespace Raminagrobis.DAL
             CreerConnexionEtCommande();
 
             commande.CommandText = "UPDATE Commandes SET id_adherent = @ID_adherent, id_panier = @ID_panier WHERE ID = @ID";
+            commande.Parameters.Add(new SqlParameter("@ID", commandes.ID));
             commande.Parameters.Add(new SqlParameter("@ID_adherent", commandes.ID_adherent));
             commande.Parameters.Add(new SqlParameter("@ID_panier", commandes.ID_panier));
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();

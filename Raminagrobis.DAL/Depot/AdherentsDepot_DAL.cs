@@ -51,13 +51,14 @@ namespace Raminagrobis.DAL
             Adherent_DAL adherent;
             if (reader.Read())
             {
-                adherent = new Adherent_DAL(reader.GetString(0),
-                                        reader.GetBoolean(1),
-                                        reader.GetString(2),
+                adherent = new Adherent_DAL(reader.GetInt32(0),
+                                        reader.GetString(1),
+                                        reader.GetBoolean(2),
                                         reader.GetString(3),
                                         reader.GetString(4),
-                                        reader.GetDateTime(5),
-                                        reader.GetBoolean(6)
+                                        reader.GetString(5),
+                                        reader.GetDateTime(6),
+                                        reader.GetBoolean(7)
                                         );
             }
             else
