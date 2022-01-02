@@ -50,7 +50,7 @@ namespace Raminagrobis.DAL
             Fournisseurs_DAL fournisseur;
             if (reader.Read())
             {
-                fournisseur = new Fournisseurs_DAL(reader.GetInt16(0),
+                fournisseur = new Fournisseurs_DAL(reader.GetInt32(0),
                                         reader.GetString(1),
                                         reader.GetBoolean(2),
                                         reader.GetString(3),
@@ -76,7 +76,8 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "INSERT INTO Fournisseurs(societe, civilite, nom, prenom, email, adresse, actif) VALUES (@Societe, @Civilite, @Nom, @Prenom, @Email, @Adresse, @Actif); SELECT SCOPE IDENTITY()";
+            commande.CommandText = "INSERT INTO Fournisseurs(societe, civilite, nom, prenom, email, adresse, actif) VALUES (@Societe, @Civilite, @Nom, @Prenom, @Email, @Adresse, @Actif); SELECT SCOPE_IDENTITY()";
+            commande.Parameters.Add(new SqlParameter("@ID", fournisseur.ID));
             commande.Parameters.Add(new SqlParameter("@Societe", fournisseur.Societe));
             commande.Parameters.Add(new SqlParameter("@Civilite", fournisseur.Civilite));
             commande.Parameters.Add(new SqlParameter("@Nom", fournisseur.Nom));
@@ -107,6 +108,7 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@Email", fournisseur.Email));
             commande.Parameters.Add(new SqlParameter("@Adresse", fournisseur.Adresse));
             commande.Parameters.Add(new SqlParameter("@Actif", fournisseur.Actif));
+            commande.Parameters.Add(new SqlParameter("@ID", fournisseur.ID));
             var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
