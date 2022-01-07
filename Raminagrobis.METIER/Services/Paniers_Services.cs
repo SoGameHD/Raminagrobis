@@ -25,11 +25,11 @@ namespace Raminagrobis.METIER.Services
         #endregion
 
         #region GetByID
-        public Fournisseurs_METIER GetByID(int id)
+        public Paniers_METIER GetByID(int id)
         {
-            var depot = new FournisseursDepot_DAL();
-            var adherent = depot.GetByID(id);
-            return new Fournisseurs_METIER(adherent.ID, adherent.Societe, adherent.Civilite, adherent.Nom, adherent.Prenom, adherent.Email, adherent.Adresse, adherent.Actif);
+            var depot = new PaniersDepot_DAL();
+            var paniers = depot.GetByID(id);
+            return new Paniers_METIER(paniers.ID, paniers.Libelle);
         }
         #endregion
 

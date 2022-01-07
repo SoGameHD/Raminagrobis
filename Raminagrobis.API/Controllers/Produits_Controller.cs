@@ -9,47 +9,41 @@ namespace Raminagrobis.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class Fournisseurs_Controller : ControllerBase
+    public class Produits_Controller : ControllerBase
     {
-        private Fournisseurs_Services service;
+        private Produits_Services service;
 
-        public Fournisseurs_Controller(Fournisseurs_Services srv)
+        public Produits_Controller(Produits_Services srv)
         {
             service = srv;
         }
 
         #region GetAll
         [HttpGet]
-        public IEnumerable<Fournisseur_DTO> GetAll()
+        public IEnumerable<Produits_DTO> GetAll()
         {
-            return service.GetAll().Select(item => new Fournisseur_DTO()
+            return service.GetAll().Select(item => new Produits_DTO()
             {
                 ID = item.ID,
-                Societe = item.Societe,
-                Civilite = item.Civilite,
-                Nom = item.Nom,
-                Prenom = item.Prenom,
-                Email = item.Email,
-                Adresse = item.Adresse,
+                Reference = item.Reference,
+                Libelle = item.Libelle,
+                Marque = item.Marque,
                 Actif = item.Actif,
-            });
+            }); ;
         }
         #endregion
 
         #region GetByID
         [HttpGet("{id}")]
-        public Fournisseur_DTO GetByID(int id)
+        public Produits_DTO GetByID(int id)
         {
             var item = service.GetByID(id);
-            return new Fournisseur_DTO()
+            return new Produits_DTO()
             {
                 ID = item.ID,
-                Societe = item.Societe,
-                Civilite = item.Civilite,
-                Nom = item.Nom,
-                Prenom = item.Prenom,
-                Email = item.Email,
-                Adresse = item.Adresse,
+                Reference = item.Reference,
+                Libelle = item.Libelle,
+                Marque = item.Marque,
                 Actif = item.Actif,
             };
         }
@@ -57,7 +51,7 @@ namespace Raminagrobis.API.Controllers
 
         #region Insert
         [HttpPost]
-        public void Insert([FromBody] Fournisseur_DTO item)
+        public void Insert([FromBody] Produits_DTO item)
         {
             service.Insert(item);
         }
@@ -65,7 +59,7 @@ namespace Raminagrobis.API.Controllers
 
         #region Update
         [HttpPut("{id}")]
-        public void Update (int id, [FromBody] Fournisseur_DTO item)
+        public void Update(int id, [FromBody] Produits_DTO item)
         {
             service.Update(id, item);
         }
@@ -73,7 +67,7 @@ namespace Raminagrobis.API.Controllers
 
         #region Delete
         [HttpDelete("{id}")]
-        public void Delete( int id)
+        public void Delete(int id)
         {
             service.Delete(id);
         }

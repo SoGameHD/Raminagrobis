@@ -14,7 +14,7 @@ namespace Raminagrobis.METIER
         public string Marque { get; set; }
         public bool Actif { get; set; }
 
-        private int ID { get; set; }
+        public int ID { get; set; }
         public Produits_METIER(string reference, string libelle, string marque, bool actif) => (Reference, Libelle, Marque, Actif) = (reference, libelle, marque, actif);
         public Produits_METIER(int id, string reference, string libelle, string marque, bool actif) => (ID, Reference, Libelle, Marque, Actif) = (id, reference, libelle, marque, actif);
 
