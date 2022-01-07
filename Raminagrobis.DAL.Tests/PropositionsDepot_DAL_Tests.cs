@@ -64,6 +64,26 @@ namespace Raminagrobis.DAL.Tests
         }
         #endregion
 
+        #region Propositions_DAL_Test_Insert
+        [Fact]
+        public void Propositions_DAL_Test_Insert()
+        {
+            int id_ligne_global = 1;
+            int id_fourniseur = 1;
+            int prix = 10;
+
+            var propositions = new Propositions_DAL(id_ligne_global, id_fourniseur, prix);
+            var repo = new PropositionsDepot_DAL();
+
+            repo.Insert(propositions);
+
+            Assert.NotNull(propositions);
+            Assert.Equal(id_ligne_global, propositions.ID_ligne_global);
+            Assert.Equal(id_fourniseur, propositions.ID_fournisseur);
+            Assert.Equal(prix, propositions.Prix);
+        }
+        #endregion
+
         #region PropositionsDepot_DAL_Test_Update
         [Fact]
         public void PropositionsDepot_DAL_Test_Update()

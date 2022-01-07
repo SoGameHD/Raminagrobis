@@ -66,6 +66,28 @@ namespace Raminagrobis.DAL.Tests
         }
         #endregion
 
+        #region LiaisonAdherents_DAL_Test_Insert
+        [Fact]
+        public void LiaisonAdherents_DAL_Test_Insert()
+        {
+            int id_produit = 1;
+            int id_commande = 1;
+            int id_ligne_global = 1;
+            int quantite = 10;
+
+            var ligneAdherent = new LignesAdherents_DAL(id_produit, id_commande, id_ligne_global, quantite);
+            var repo = new LignesAdherentsDepot_DAL();
+
+            repo.Insert(ligneAdherent);
+
+            Assert.NotNull(ligneAdherent);
+            Assert.Equal(id_produit, ligneAdherent.ID_produit);
+            Assert.Equal(id_commande, ligneAdherent.ID_commande);
+            Assert.Equal(id_ligne_global, ligneAdherent.ID_ligne_global);
+            Assert.Equal(quantite, ligneAdherent.Quantite);
+        }
+        #endregion
+
         #region LignesAdherentsDepot_DAL_Test_Update
         [Fact]
         public void LignesAdherentsDepot_DAL_Test_Update()
