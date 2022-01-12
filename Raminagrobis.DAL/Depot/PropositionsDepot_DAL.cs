@@ -104,8 +104,14 @@ namespace Raminagrobis.DAL
         {
             CreerConnexionEtCommande();
 
-            commande.CommandText = "INSERT INTO Propositions (prix) VALUES (@prix); SELECT SCOPE_IDENTITY()";
+            commande.CommandText = "INSERT INTO Propositions (id_ligne_global, id_fournisseur, prix) VALUES (@ID_ligne_global, @ID_fournisseur, @Prix); SELECT SCOPE_IDENTITY()";
+            commande.Parameters.Add(new SqlParameter("@ID_ligne_global", propositions.ID_ligne_global));
+            commande.Parameters.Add(new SqlParameter("@ID_fournisseur", propositions.ID_fournisseur));
             commande.Parameters.Add(new SqlParameter("@Prix", propositions.Prix));
+            var ID_ligne_global = Convert.ToInt32((decimal)commande.ExecuteScalar());
+            var ID_fournisseur = Convert.ToInt32((decimal)commande.ExecuteScalar());
+                propositions.ID_ligne_global = ID_ligne_global;
+                propositions.ID_fournisseur = ID_fournisseur;
 
             DetruireConnexionEtCommande();
 
