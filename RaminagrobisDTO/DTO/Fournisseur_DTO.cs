@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Raminagrobis.DTO
+namespace Raminagrobis.DTO.DTO
 {
     public class Fournisseur_DTO
     {

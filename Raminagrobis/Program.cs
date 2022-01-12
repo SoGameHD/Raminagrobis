@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Raminagrobis.DAL;
+using Raminagrobis.DAL.DAL;
 
-namespace Raminagrobis
+namespace Raminagrobis_Console
 {
     class Program
     {

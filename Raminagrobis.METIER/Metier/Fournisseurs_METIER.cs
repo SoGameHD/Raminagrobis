@@ -1,7 +1,7 @@
 ﻿using System;
-using Raminagrobis.DAL;
+using Raminagrobis.DAL.DAL;
 
-namespace Raminagrobis.METIER
+namespace Raminagrobis.METIER.Metier
 {
     public class Fournisseurs_METIER
     {
@@ -11,7 +11,7 @@ namespace Raminagrobis.METIER
         public string Prenom { get; set; }
         public string Email { get; set; }
         public string Adresse { get; set; }
-        public Boolean Actif { get; set; }
+        public bool Actif { get; set; }
 
         public int ID { get; set; }
 

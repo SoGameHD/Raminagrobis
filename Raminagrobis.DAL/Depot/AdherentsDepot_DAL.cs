@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using Raminagrobis.DAL.DAL;
 
-namespace Raminagrobis.DAL
+namespace Raminagrobis.DAL.Depot
 {
     public class AdherentDepot_DAL : Depot_DAL<Adherent_DAL>
     {
@@ -111,7 +112,7 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@Date_adhesion", adherent.Date_adhesion));
             commande.Parameters.Add(new SqlParameter("@Actif", adherent.Actif));
 
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
             {
@@ -131,7 +132,7 @@ namespace Raminagrobis.DAL
 
             commande.CommandText = "DELETE FROM Adherents WHERE ID=@ID";
             commande.Parameters.Add(new SqlParameter("@ID", adherent.ID));
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
             {

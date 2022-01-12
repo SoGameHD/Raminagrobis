@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Raminagrobis.DAL;
-using Raminagrobis.METIER;
-using Raminagrobis.DTO;
+using Raminagrobis.DTO.DTO;
+using Raminagrobis.DAL.Depot;
+using Raminagrobis.METIER.Metier;
+using Raminagrobis.DAL.DAL;
 
 namespace Raminagrobis.METIER.Services
 {
-     public class Fournisseurs_Services
+    public class Fournisseurs_Services
     {
         private FournisseursDepot_DAL depot = new FournisseursDepot_DAL();
 

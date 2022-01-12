@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Raminagrobis.DAL.DAL;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raminagrobis.DAL
+namespace Raminagrobis.DAL.Depot
 {
     public class PaniersDepot_DAL : Depot_DAL<Paniers_DAL>
     {
@@ -87,7 +88,7 @@ namespace Raminagrobis.DAL
             commande.CommandText = "UPDATE Paniers SET libelle = @Libelle WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID", paniers.ID));
             commande.Parameters.Add(new SqlParameter("@Libelle", paniers.Libelle));
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
             {
@@ -107,7 +108,7 @@ namespace Raminagrobis.DAL
             commande.CommandText = "DELETE FROM Paniers WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID", paniers.ID));
 
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees < 0)
             {

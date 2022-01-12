@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Raminagrobis.DAL;
+using Raminagrobis.DAL.DAL;
 
-namespace Raminagrobis.METIER
+namespace Raminagrobis.METIER.Metier
 {
     public class Produits_METIER
     {

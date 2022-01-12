@@ -1,3 +1,4 @@
+using Raminagrobis.DAL.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -5,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raminagrobis.DAL
+namespace Raminagrobis.DAL.Depot
 {
     public class PropositionsDepot_DAL : Depot_DAL<Propositions_DAL>
     {
@@ -110,8 +111,8 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@Prix", propositions.Prix));
             var ID_ligne_global = Convert.ToInt32((decimal)commande.ExecuteScalar());
             var ID_fournisseur = Convert.ToInt32((decimal)commande.ExecuteScalar());
-                propositions.ID_ligne_global = ID_ligne_global;
-                propositions.ID_fournisseur = ID_fournisseur;
+            propositions.ID_ligne_global = ID_ligne_global;
+            propositions.ID_fournisseur = ID_fournisseur;
 
             DetruireConnexionEtCommande();
 
@@ -128,7 +129,7 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@Prix", propositions.Prix));
             commande.Parameters.Add(new SqlParameter("@ID_ligne_global", propositions.ID_ligne_global));
             commande.Parameters.Add(new SqlParameter("@ID_fournisseur", propositions.ID_fournisseur));
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
             {

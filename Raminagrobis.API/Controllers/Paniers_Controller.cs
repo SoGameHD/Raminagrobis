@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Raminagrobis.DTO;
 using System.Collections.Generic;
 using System.Linq;
 using Raminagrobis.METIER.Services;
+using Raminagrobis.DTO.DTO;
 
 namespace Raminagrobis.API.Controllers
 {

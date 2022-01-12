@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raminagrobis.DAL
+namespace Raminagrobis.DAL.DAL
 {
     public class LignesAdherents_DAL
     {
