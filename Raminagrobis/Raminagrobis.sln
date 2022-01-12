@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8C88CCC6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raminagrobis.DAL.Tests", "..\Raminagrobis.DAL.Tests\Raminagrobis.DAL.Tests.csproj", "{AB927DB6-684E-4511-8C63-B75C8DFAFF17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raminagrobis.API", "..\Raminagrobis.API\Raminagrobis.API.csproj", "{81D91285-6726-44E0-99E5-2FFBC1BB81C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
