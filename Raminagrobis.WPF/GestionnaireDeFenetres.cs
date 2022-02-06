@@ -11,10 +11,10 @@ namespace Raminagrobis.WPF
         static public MainWindow MainWindow { get; set; }
 
         static public Adherents Adherents { get; set; }
-   //     static public Fournisseur Fournisseur { get; set; }
-     //   static public LignesAdherents LignesAdherents { get; set; }
-       // static public LignesGlobal LignesGlobal { get; set; }
-    //    static public Produits Produits { get; set; }
-      //  static public Proposition Proposition { get; set; }
+        static public Fournisseur Fournisseur { get; set; }
+        static public LignesAdherents LignesAdherents { get; set; }
+        static public LignesGlobal LignesGlobal { get; set; }
+        static public Produits Produits { get; set; }
+        static public Proposition Proposition { get; set; }
     }
 }

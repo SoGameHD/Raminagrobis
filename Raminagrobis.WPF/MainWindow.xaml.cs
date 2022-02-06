@@ -42,7 +42,7 @@ namespace Raminagrobis.WPF
 
 
 
- /*       private void BtnFournisseur(object sender, RoutedEventArgs e)
+        private void BtnFournisseur(object sender, RoutedEventArgs e)
         {
 
 
@@ -89,6 +89,6 @@ namespace Raminagrobis.WPF
             }
             Main.Navigate(GestionnaireDeFenetres.Proposition);
         }
- */
+
     }
 }
