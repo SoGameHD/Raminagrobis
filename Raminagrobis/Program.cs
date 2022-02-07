@@ -21,6 +21,7 @@ namespace Raminagrobis_Console
 
             depotFournisseurs2.Insert(Fournisseur);
             depotFournisseurs2.Delete(Fournisseur);
+            
         }
     }
 }
