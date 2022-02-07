@@ -1,0 +1,42 @@
+﻿<Page x:Class="Raminagrobis.WPF.Fournisseur"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Raminagrobis.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Fournisseur">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="173*"/>
+            <RowDefinition Height="277*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="Liste" Text="Page Fournisseurs" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32px" Margin="250,52,259,77.8" Width="291"/>
+        <TextBlock x:Name="OutputSociete" Text="Societe" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,120,624,24.8" Height="28" Width="88"/>
+        <TextBlock Text="Civilite" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,120.2,624,128.6" Height="28" Width="88" Grid.Row="1"/>
+        <TextBlock Text="Nom" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,162,624,259.6" Height="28" Width="88" Grid.RowSpan="2"/>
+        <TextBlock Text="Prenom" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,32.2,624,216.6" Height="28" Width="88" Grid.Row="1"/>
+        <TextBlock Text="Email" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,74.2,624,174.6" Height="28" Width="88" Grid.Row="1"/>
+        <TextBox x:Name="InputFournisseursSociete" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,24.8" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="108" />
+        <TextBox x:Name="InputFournisseursNom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,258.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.RowSpan="2" />
+        <TextBox x:Name="InputFournisseursPrenom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,216.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.Row="1" />
+        <TextBox x:Name="InputFournisseursEmail" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,175.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.Row="1" />
+        <TextBox x:Name="InputFournisseursCivilite" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,128.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.Row="1" />
+        <Button Content="Add" Margin="211,176.2,515,71.6" Click="BtnAdd" Grid.Row="1"/>
+        <ListView Name="lvFournisseurs" Margin="323,120,22,128.6" Grid.RowSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Societe" Width="80" DisplayMemberBinding="{Binding Societe}" />
+                    <GridViewColumn Header="Nom" Width="80" DisplayMemberBinding="{Binding Nom}" />
+                    <GridViewColumn Header="Prenom" Width="80" DisplayMemberBinding="{Binding Prenom}" />
+                    <GridViewColumn Header="Email" Width="80" DisplayMemberBinding="{Binding Email}" />
+                    <GridViewColumn Header="Civilite" Width="50" DisplayMemberBinding="{Binding Civilite}" />
+                    <GridViewColumn Header="Actif" Width="80" DisplayMemberBinding="{Binding Actif}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Afficher Liste" Margin="524,176.2,202,71.6" Click="BtnListe" Grid.Row="1"/>
+    </Grid>
+</Page>
