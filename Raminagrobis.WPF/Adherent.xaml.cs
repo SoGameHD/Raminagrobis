@@ -36,6 +36,11 @@ namespace Raminagrobis.WPF
             InputAdherentsSociete.Text = "Societe";
         }
 
+        private void BtnSupprimer(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void BtnListe(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
