@@ -51,6 +51,7 @@ namespace Raminagrobis.WPF
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvFournisseurs.ItemsSource);
         }
+        #endregion
 
         #region BtnDelete
         private void BtnDelete(object sender, RoutedEventArgs e)
