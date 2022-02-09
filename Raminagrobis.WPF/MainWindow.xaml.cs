@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Net.Http;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Raminagrobis.API.Client;
+using Raminagrobis.DTO;
 
 namespace Raminagrobis.WPF
 {
@@ -24,6 +27,16 @@ namespace Raminagrobis.WPF
         public MainWindow()
         {
             InitializeComponent();
+        }
+        #endregion
+
+        #region LoadWindow
+        private async void LoadWindow(object sender, RoutedEventArgs e)
+        {
+            // TODO : Ajouter le bon port
+            var apiclient = new Client("https://localhost:/", new HttpClient());
+
+            GestionnaireDeFenetres.MainWindow = this;
         }
         #endregion
 
@@ -41,8 +54,6 @@ namespace Raminagrobis.WPF
         #region BtnFournisseur
         private void BtnFournisseur(object sender, RoutedEventArgs e)
         {
-
-
             if (GestionnaireDeFenetres.Fournisseur == null)
             {
                 GestionnaireDeFenetres.Fournisseur = new Fournisseur();
