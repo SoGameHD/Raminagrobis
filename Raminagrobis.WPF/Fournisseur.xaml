@@ -37,7 +37,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Afficher Liste" Margin="642,176,84,72" Click="BtnListe" Grid.Row="1"/>
-        <Button Content="Supprimer" Margin="444,176,282,72" Click="BtnSupprimer" Grid.Row="1"/>
+        <Button Content="Afficher Liste" Margin="642,176,84,72" Click="BtnGetAll" Grid.Row="1"/>
+        <Button Content="Supprimer" Margin="444,176,282,72" Click="BtnDelete" Grid.Row="1"/>
     </Grid>
 </Page>

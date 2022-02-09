@@ -20,9 +20,79 @@ namespace Raminagrobis.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region MainWindow
         public MainWindow()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region BtnAdherent
+        private void BtnAdherent(object sender, RoutedEventArgs e)
+        {
+            if (GestionnaireDeFenetres.Adherents == null)
+            {
+                GestionnaireDeFenetres.Adherents = new Adherents();
+            }
+            Main.Navigate(GestionnaireDeFenetres.Adherents);
+        }
+        #endregion
+
+        #region BtnFournisseur
+        private void BtnFournisseur(object sender, RoutedEventArgs e)
+        {
+
+
+            if (GestionnaireDeFenetres.Fournisseur == null)
+            {
+                GestionnaireDeFenetres.Fournisseur = new Fournisseur();
+            }
+            Main.Navigate(GestionnaireDeFenetres.Fournisseur);
+        }
+        #endregion
+
+        #region BtnLignesAdherents
+        private void BtnLignesAdherents(object sender, RoutedEventArgs e)
+        {
+            if (GestionnaireDeFenetres.LignesAdherents == null)
+            {
+                GestionnaireDeFenetres.LignesAdherents = new LignesAdherents();
+            }
+            Main.Navigate(GestionnaireDeFenetres.LignesAdherents);
+        }
+        #endregion
+
+        #region BtnLignesGlobal
+        private void BtnLignesGlobal(object sender, RoutedEventArgs e)
+        {
+            if (GestionnaireDeFenetres.LignesGlobal == null)
+            {
+                GestionnaireDeFenetres.LignesGlobal = new LignesGlobal();
+            }
+            Main.Navigate(GestionnaireDeFenetres.LignesGlobal);
+        }
+        #endregion
+
+        #region BtnProduits
+        private void BtnProduits(object sender, RoutedEventArgs e)
+        {
+            if (GestionnaireDeFenetres.Produits == null)
+            {
+                GestionnaireDeFenetres.Produits = new Produits();
+            }
+            Main.Navigate(GestionnaireDeFenetres.Produits);
+        }
+        #endregion
+
+        #region BtnProposition
+        private void BtnProposition(object sender, RoutedEventArgs e)
+        {
+            if (GestionnaireDeFenetres.Proposition == null)
+            {
+                GestionnaireDeFenetres.Proposition = new Proposition();
+            }
+            Main.Navigate(GestionnaireDeFenetres.Proposition);
+        }
+        #endregion
     }
 }

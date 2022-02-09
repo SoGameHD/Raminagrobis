@@ -20,11 +20,14 @@ namespace Raminagrobis.WPF
     /// </summary>
     public partial class Fournisseur : Page
     {
+        #region Fournisseur
         public Fournisseur()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region BtnAdd
         private void BtnAdd(object sender, RoutedEventArgs e)
         {
             Liste.Text = "Il y a bcp de fournisseurs";
@@ -35,13 +38,10 @@ namespace Raminagrobis.WPF
             InputFournisseursPrenom.Text = "Prenom";
             InputFournisseursSociete.Text = "Societe";
         }
+        #endregion
 
-        private void BtnSupprimer(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnListe(object sender, RoutedEventArgs e)
+        #region BtnGetAll
+        private void BtnGetAll(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
             List<User> items = new List<User>();
@@ -50,9 +50,15 @@ namespace Raminagrobis.WPF
             lvFournisseurs.ItemsSource = items;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvFournisseurs.ItemsSource);
-
         }
 
+        #region BtnDelete
+        private void BtnDelete(object sender, RoutedEventArgs e)
+        {
+        }
+        #endregion
+
+        #region User
         public class User
         {
             public int ID { get; set; }
@@ -63,7 +69,7 @@ namespace Raminagrobis.WPF
             public string Email { get; set; }
             public string Adresse { get; set; }
             public bool Actif { get; set; }
-
         }
+        #endregion
     }
 }

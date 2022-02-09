@@ -20,12 +20,15 @@ namespace Raminagrobis.WPF
     /// </summary>
     public partial class Produits : Page
     {
+        #region Produits
         public Produits()
         {
             InitializeComponent();
         }
+        #endregion
 
-        private void BtnListe(object sender, RoutedEventArgs e)
+        #region BtnGetAll
+        private void BtnGetAll(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
             List<Produit> items = new List<Produit>();
@@ -33,9 +36,10 @@ namespace Raminagrobis.WPF
             lvProduits.ItemsSource = items;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvProduits.ItemsSource);
-
         }
+        #endregion
 
+        #region Produit
         public class Produit
         {
             public string Reference { get; set; }
@@ -43,7 +47,7 @@ namespace Raminagrobis.WPF
             public string Marque { get; set; }
             public bool Actif { get; set; }
             public int ID { get; set; }
-
         }
+        #endregion
     }
 }

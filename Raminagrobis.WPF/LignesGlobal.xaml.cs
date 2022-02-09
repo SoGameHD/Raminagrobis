@@ -20,29 +20,32 @@ namespace Raminagrobis.WPF
     /// </summary>
     public partial class LignesGlobal : Page
     {
+        #region LignesGlobal
         public LignesGlobal()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region BtnListe
         private void BtnListe(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
             List<LigneGlobal> items = new List<LigneGlobal>();
             items.Add(new LigneGlobal() { ID = 1, ID_panier = 2, ID_produit = 3, Quantite = 4 });
             lvLigneGlobal.ItemsSource = items;
-
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvLigneGlobal.ItemsSource);
-
         }
+        #endregion
 
+        #region LigneGlobal
         public class LigneGlobal
         {
             public int ID_panier { get; set; }
             public int Quantite { get; set; }
             public int ID_produit { get; set; }
             public int ID { get; set; }
-
         }
+        #endregion
     }
 }

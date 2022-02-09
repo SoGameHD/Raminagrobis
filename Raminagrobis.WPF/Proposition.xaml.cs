@@ -20,12 +20,15 @@ namespace Raminagrobis.WPF
     /// </summary>
     public partial class Proposition : Page
     {
+        #region Proposition
         public Proposition()
         {
             InitializeComponent();
         }
+        #endregion
 
-        private void BtnListe(object sender, RoutedEventArgs e)
+        #region BtnGetAll
+        private void BtnGetAll(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
             List<UneProposition> items = new List<UneProposition>();
@@ -33,16 +36,16 @@ namespace Raminagrobis.WPF
             lvProposition.ItemsSource = items;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvProposition.ItemsSource);
-
         }
+        #endregion
 
+        #region UneProposition
         public class UneProposition
         {
             public int Prix { get; set; }
             public int ID_ligne_global { get; set; }
             public int ID_fournisseur { get; set; }
-
-
         }
+        #endregion
     }
 }

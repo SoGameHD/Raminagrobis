@@ -20,6 +20,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Afficher Liste" Margin="524,351,155,71.6" Click="BtnListe"/>
+        <Button Content="Afficher Liste" Margin="524,351,155,71.6" Click="BtnGetAll"/>
     </Grid>
 </Page>

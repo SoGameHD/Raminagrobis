@@ -20,12 +20,15 @@ namespace Raminagrobis.WPF
     /// </summary>
     public partial class Adherents : Page
     {
+        #region Adherents
         public Adherents()
         {
             InitializeComponent();
         }
+        #endregion
 
-        private void BtnAdd(object sender, RoutedEventArgs e)
+        #region BtnInsert
+        private void BtnInsert(object sender, RoutedEventArgs e)
         {
             Liste.Text = "Il y a bcp d'adhérents";
             OutputSociete.Text = InputAdherentsSociete.Text;
@@ -35,13 +38,10 @@ namespace Raminagrobis.WPF
             InputAdherentsPrenom.Text = "Prenom";
             InputAdherentsSociete.Text = "Societe";
         }
+        #endregion
 
-        private void BtnSupprimer(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BtnListe(object sender, RoutedEventArgs e)
+        #region BtnGetAll
+        private void BtnGetAll(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
             List<User> items = new List<User>();
@@ -63,9 +63,16 @@ namespace Raminagrobis.WPF
             lvAdherents.ItemsSource = items;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvAdherents.ItemsSource);
-
         }
+        #endregion
 
+        #region BtnDelete
+        private void BtnDelete(object sender, RoutedEventArgs e)
+        {
+        }
+        #endregion
+
+        #region User
         public class User
         {
             public int ID { get; set; }
@@ -78,6 +85,7 @@ namespace Raminagrobis.WPF
             public string Email { get; set; }
             public DateTime Date_adhesion { get; set; }
         }
+        #endregion
 
     }
 }

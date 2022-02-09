@@ -20,12 +20,15 @@ namespace Raminagrobis.WPF
     /// </summary>
     public partial class LignesAdherents : Page
     {
+        #region LignesAdherents
         public LignesAdherents()
         {
             InitializeComponent();
         }
+        #endregion
 
-        private void BtnListe(object sender, RoutedEventArgs e)
+        #region BtnGetAll
+        private void BtnGetAll(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
             List<LigneAdherent> items = new List<LigneAdherent>();
@@ -33,9 +36,10 @@ namespace Raminagrobis.WPF
             lvLigneAdherents.ItemsSource = items;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvLigneAdherents.ItemsSource);
-
         }
+        #endregion
 
+        #region LignesAdherent
         public class LigneAdherent
         {
             public int ID_ligne_global { get; set; }
@@ -43,5 +47,6 @@ namespace Raminagrobis.WPF
             public int ID_produit { get; set; }
             public int ID_commande { get; set; }
         }
+        #endregion
     }
 }

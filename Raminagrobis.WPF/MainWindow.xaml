@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Raminagrobis.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1202.8">
     <Grid>
-        
+        <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
+            <Button Content="Page Adherents" MinWidth="100" Margin="10 0 0 0" Click="BtnAdherent"/>
+
+            <Button Content="Page Fournisseur" MinWidth="100" Margin="10 0 0 0" Click="BtnFournisseur"/>
+
+            <Button Content="Page LignesAdherents" MinWidth="100" Margin="10 0 0 0" Click="BtnLignesAdherents"/>
+            <Button Content="Page LignesGlobal" MinWidth="100" Margin="10 0 0 0" Click="BtnLignesGlobal"/>
+
+            <Button Content="Page Produits" MinWidth="100" Margin="10 0 0 0" Click="BtnProduits"/>
+            <Button Content="Page Proposition" MinWidth="100" Margin="10 0 0 0" Click="BtnProposition"/>
+
+        </StackPanel>
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Margin="0 35 0 0" />
     </Grid>
 </Window>
