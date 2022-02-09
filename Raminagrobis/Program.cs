@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Raminagrobis.DAL.DAL;
+using Raminagrobis.DAL.Depot;
 
 namespace Raminagrobis_Console
 {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Raminagrobis.DAL.DAL;
+using Raminagrobis.DAL.Depot;
 
 namespace Raminagrobis.METIER.Metier
 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using Raminagrobis.DAL.DAL;
+using Raminagrobis.DAL.Depot;
 
 namespace Raminagrobis.METIER.Metier
 {
