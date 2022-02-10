@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Net.Http;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Raminagrobis.API.Client;
+using Raminagrobis.DTO.DTO;
 
 namespace Raminagrobis.WPF
 {
@@ -27,6 +30,17 @@ namespace Raminagrobis.WPF
         }
         #endregion
 
+        #region LoadPage
+        private async void LoadPage(object sender, RoutedEventArgs e)
+        {
+            var apiclient = new Client("https://localhost:/44345", new HttpClient());
+            var fournisseur = await apiclient.AdherentAllAsync();
+
+            lvFournisseurs.ItemsSource = fournisseur;
+        }
+        #endregion
+
+        /*
         #region BtnAdd
         private void BtnAdd(object sender, RoutedEventArgs e)
         {
@@ -52,25 +66,6 @@ namespace Raminagrobis.WPF
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvFournisseurs.ItemsSource);
         }
         #endregion
-
-        #region BtnDelete
-        private void BtnDelete(object sender, RoutedEventArgs e)
-        {
-        }
-        #endregion
-
-        #region User
-        public class User
-        {
-            public int ID { get; set; }
-            public string Societe { get; set; }
-            public bool Civilite { get; set; }
-            public string Nom { get; set; }
-            public string Prenom { get; set; }
-            public string Email { get; set; }
-            public string Adresse { get; set; }
-            public bool Actif { get; set; }
-        }
-        #endregion
+        */
     }
 }

@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Net.Http;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Raminagrobis.API.Client;
+using Raminagrobis.DTO.DTO;
 
 namespace Raminagrobis.WPF
 {
@@ -27,6 +30,16 @@ namespace Raminagrobis.WPF
         }
         #endregion
 
+        #region LoadWindow
+        private async void LoadWindow(object sender, RoutedEventArgs e)
+        {
+            var apiclient = new Client("https://localhost:/44345", new HttpClient());
+            var proposition = await apiclient.AdherentAllAsync();
+
+            lvProposition.ItemsSource = proposition;
+        }
+        #endregion
+
         #region BtnGetAll
         private void BtnGetAll(object sender, RoutedEventArgs e)
         {
@@ -36,15 +49,6 @@ namespace Raminagrobis.WPF
             lvProposition.ItemsSource = items;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvProposition.ItemsSource);
-        }
-        #endregion
-
-        #region UneProposition
-        public class UneProposition
-        {
-            public int Prix { get; set; }
-            public int ID_ligne_global { get; set; }
-            public int ID_fournisseur { get; set; }
         }
         #endregion
     }

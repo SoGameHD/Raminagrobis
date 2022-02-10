@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Net.Http;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Raminagrobis.API.Client;
+using Raminagrobis.DTO.DTO;
 
 namespace Raminagrobis.WPF
 {
@@ -24,6 +27,16 @@ namespace Raminagrobis.WPF
         public Produits()
         {
             InitializeComponent();
+        }
+        #endregion
+
+        #region LoadWindow
+        private async void LoadWindow(object sender, RoutedEventArgs e)
+        {
+            var apiclient = new Client("https://localhost:/44345", new HttpClient());
+            var produit = await apiclient.AdherentAllAsync();
+
+            lvProduits.ItemsSource = produit;
         }
         #endregion
 

@@ -30,12 +30,10 @@ namespace Raminagrobis.WPF
         }
         #endregion
 
-        #region LoadWindow
-        private async void LoadWindow(object sender, RoutedEventArgs e)
+        #region LoadPage
+        private async void LoadPage(object sender, RoutedEventArgs e)
         {
-            // TODO : Ajouter le bon port
-            var apiclient = new Client("https://localhost:/", new HttpClient());
-
+            var apiclient = new Client("https://localhost:/44345", new HttpClient());
             GestionnaireDeFenetres.MainWindow = this;
         }
         #endregion
@@ -59,28 +57,6 @@ namespace Raminagrobis.WPF
                 GestionnaireDeFenetres.Fournisseur = new Fournisseur();
             }
             Main.Navigate(GestionnaireDeFenetres.Fournisseur);
-        }
-        #endregion
-
-        #region BtnLignesAdherents
-        private void BtnLignesAdherents(object sender, RoutedEventArgs e)
-        {
-            if (GestionnaireDeFenetres.LignesAdherents == null)
-            {
-                GestionnaireDeFenetres.LignesAdherents = new LignesAdherents();
-            }
-            Main.Navigate(GestionnaireDeFenetres.LignesAdherents);
-        }
-        #endregion
-
-        #region BtnLignesGlobal
-        private void BtnLignesGlobal(object sender, RoutedEventArgs e)
-        {
-            if (GestionnaireDeFenetres.LignesGlobal == null)
-            {
-                GestionnaireDeFenetres.LignesGlobal = new LignesGlobal();
-            }
-            Main.Navigate(GestionnaireDeFenetres.LignesGlobal);
         }
         #endregion
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Raminagrobis.API.Client;
 
 namespace Raminagrobis.WPF
 {
@@ -20,72 +22,39 @@ namespace Raminagrobis.WPF
     /// </summary>
     public partial class Adherents : Page
     {
-        #region Adherents
+        #region Adherent
         public Adherents()
         {
             InitializeComponent();
         }
         #endregion
 
+        #region LoadPage
+        private async void LoadPage(object sender, RoutedEventArgs e)
+        {
+            var apiclient = new Client("https://localhost:/44345", new HttpClient());
+            var adherent = await apiclient.AdherentAllAsync();
+           
+            lvAdherents.ItemsSource = adherent;
+        }
+        #endregion
+
+        /*
         #region BtnInsert
         private void BtnInsert(object sender, RoutedEventArgs e)
         {
-            Liste.Text = "Il y a bcp d'adhérents";
-            OutputSociete.Text = InputAdherentsSociete.Text;
-            InputAdherentsCivilite.Text = "Civilite";
-            InputAdherentsEmail.Text = "Email";
-            InputAdherentsNom.Text = "Nom";
-            InputAdherentsPrenom.Text = "Prenom";
-            InputAdherentsSociete.Text = "Societe";
+            var apiclient = new Client("https://localhost:/44345", new HttpClient());
+            Adherent_DTO adherent_DTO = new Adherent_DTO();
+            adherent_DTO.Societe = InputSociete.Text;
+            adherent_DTO.Civilite = InputCivilite.AcceptsReturn;
+            adherent_DTO.Nom = InputNom.Text;
+            adherent_DTO.Prenom = InputNom.Text;
+            adherent_DTO.Email = InputEmail.Text;
+            //TODO : Ajouter Date_Adhesion / Actif
+
+            apiclient.AdherentPOSTAsync(adherent_DTO);
         }
         #endregion
-
-        #region BtnGetAll
-        private void BtnGetAll(object sender, RoutedEventArgs e)
-        {
-            InitializeComponent();
-            List<User> items = new List<User>();
-            items.Add(new User() { Societe = "John Doe", Civilite = true, Nom = "Nizae", Prenom = "Jean", Email = "Jean@gmail.com", Date_adhesion = DateTime.Now.Date, ID = 3 });
-            items.Add(new User() { Societe = "John Doe", Civilite = false, Nom = "Nizae", Prenom = "Jean", Email = "Jean@gmail.com", Date_adhesion = DateTime.Now.Date });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now.Date });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now.Date });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now.Date });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now.Date });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now.Date });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now });
-            items.Add(new User() { Societe = "Hey ho", Civilite = true, Nom = "Nizae", Prenom = "Hiez", Email = "zea@gmail.com", Date_adhesion = DateTime.Now });
-            lvAdherents.ItemsSource = items;
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvAdherents.ItemsSource);
-        }
-        #endregion
-
-        #region BtnDelete
-        private void BtnDelete(object sender, RoutedEventArgs e)
-        {
-        }
-        #endregion
-
-        #region User
-        public class User
-        {
-            public int ID { get; set; }
-            public string Societe { get; set; }
-            public Boolean Civilite { get; set; }
-            //TODO
-            //Faire une modif pour que civilite change selon true ou false et met une valeur non bool
-            public string Nom { get; set; }
-            public string Prenom { get; set; }
-            public string Email { get; set; }
-            public DateTime Date_adhesion { get; set; }
-        }
-        #endregion
-
+        */
     }
 }
