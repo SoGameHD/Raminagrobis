@@ -10,35 +10,39 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="173*"/>
-            <RowDefinition Height="277*"/>
+            <RowDefinition Height="225"/>
+            <RowDefinition Height="225"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="Liste" Text="Page Adherents" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32px" Margin="279,50,299,79.8"/>
-        <TextBlock x:Name="OutputSociete" Text="Societe" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,120,624,24.8" Height="28" Width="88"/>
-        <TextBlock Text="Civilite" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,120.2,624,128.6" Height="28" Width="88" Grid.Row="1"/>
-        <TextBlock Text="Nom" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,162,624,259.6" Height="28" Width="88" Grid.RowSpan="2"/>
-        <TextBlock Text="Prenom" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,32.2,624,216.6" Height="28" Width="88" Grid.Row="1"/>
-        <TextBlock Text="Email" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,74.2,624,174.6" Height="28" Width="88" Grid.Row="1"/>
-        <TextBox x:Name="InputSociete" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,24.8"  Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="108" />
-        <TextBox x:Name="InputNom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,258.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.RowSpan="2" />
-        <TextBox x:Name="InputPrenom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,216.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.Row="1" />
-        <TextBox x:Name="InputEmail" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,175.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.Row="1" />
-        <TextBox x:Name="InputCivilite" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,128.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.Row="1" />
-        <Button Content="Add" Margin="211,176.2,515,71.6" Click="BtnInsert" Grid.Row="1"/>
-        <ListView Name="lvAdherents" Margin="323,120,22,128.6" Grid.RowSpan="2">
+        <TextBlock x:Name="Liste" Text="Page Adherents" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="32px" Height="42" Width="222" Margin="272,30,0,0"/>
+        <TextBlock x:Name="Societe" Text="Societe" FontSize="16px" Margin="40,90,675,105"/>
+        <TextBlock Text="Civilite" FontSize="16px" Margin="40,130,675,65"/>
+        <TextBlock Text="Nom" FontSize="16px" Margin="40,170,675,25"/>
+        <TextBlock Text="Prenom" FontSize="16px" Margin="40,210,675,210" Grid.RowSpan="2"/>
+        <TextBlock Text="Email" FontSize="16px" Margin="40,25,675,170" Grid.Row="1"/>
+        <TextBlock Text="Actif" FontSize="16px" Margin="40,65,675,130" Grid.Row="1"/>
+        <TextBox x:Name="InputSociete" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="110,90,560,105" />
+        <TextBox x:Name="InputCivilite" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="110,130,560,65" />
+        <TextBox x:Name="InputNom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="110,170,560,25" />
+        <TextBox x:Name="InputPrenom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="110,210,560,210" Grid.RowSpan="2" />
+        <TextBox x:Name="InputEmail" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="110,25,560,170" Grid.Row="1" />
+        <TextBox x:Name="InputActif" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="110,65,560,130" Grid.Row="1" />
+        <ListView Name="lvAdherents" Margin="270,90,30,130" Grid.RowSpan="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Societe" Width="80" DisplayMemberBinding="{Binding Societe}" />
+                    <GridViewColumn Header="Societe" Width="60" DisplayMemberBinding="{Binding Societe}" />
                     <GridViewColumn Header="Nom" Width="60" DisplayMemberBinding="{Binding Nom}" />
                     <GridViewColumn Header="Prenom" Width="60" DisplayMemberBinding="{Binding Prenom}" />
-                    <GridViewColumn Header="Email" Width="60" DisplayMemberBinding="{Binding Email}" />
+                    <GridViewColumn Header="Email" Width="80" DisplayMemberBinding="{Binding Email}" />
                     <GridViewColumn Header="Civilite" Width="50" DisplayMemberBinding="{Binding Civilite}" />
-                    <GridViewColumn Header="Date Adhesion" Width="60" DisplayMemberBinding="{Binding Date_adhesion}" />
-                    <GridViewColumn Header="ID" Width="60" DisplayMemberBinding="{Binding ID}" />
+                    <GridViewColumn Header="Date Adhesion" Width="90" DisplayMemberBinding="{Binding Date_adhesion}" />
+                    <GridViewColumn Header="Actif" Width="55" DisplayMemberBinding="{Binding Actif}" />
+                    <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding ID}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Afficher Liste" Margin="639,176,87,72" Click="BtnGetAll" Grid.Row="1"/>
-        <Button Content="Supprimer" Margin="444,176,282,72" Click="BtnDelete" Grid.Row="1"/>
+        <Button Content="Add" Margin="270,110,420,75" Click="BtnInsert" Grid.Row="1"/>
+        <Button Content="Supprimer" Margin="400,110,290,75" Click="BtnDelete" Grid.Row="1"/>
+        <Button Content="Modifier" Margin="530,110,160,75" Click="BtnGetAll" Grid.Row="1"/>
+        <Button Content="Afficher Liste" Margin="660,110,30,75" Click="BtnGetAll" Grid.Row="1"/>
     </Grid>
 </Page>

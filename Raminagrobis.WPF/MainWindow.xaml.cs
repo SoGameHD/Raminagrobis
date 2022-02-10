@@ -23,7 +23,7 @@ namespace Raminagrobis.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        #region MainWindow
+        #region InitializeComponent
         public MainWindow()
         {
             InitializeComponent();

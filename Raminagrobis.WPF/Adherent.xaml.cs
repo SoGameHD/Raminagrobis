@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Raminagrobis.API.Client;
+using Raminagrobis.DTO.DTO;
 
 namespace Raminagrobis.WPF
 {
@@ -22,7 +23,7 @@ namespace Raminagrobis.WPF
     /// </summary>
     public partial class Adherents : Page
     {
-        #region Adherent
+        #region InitializeComponent
         public Adherents()
         {
             InitializeComponent();
@@ -39,7 +40,6 @@ namespace Raminagrobis.WPF
         }
         #endregion
 
-        /*
         #region BtnInsert
         private void BtnInsert(object sender, RoutedEventArgs e)
         {
@@ -50,11 +50,21 @@ namespace Raminagrobis.WPF
             adherent_DTO.Nom = InputNom.Text;
             adherent_DTO.Prenom = InputNom.Text;
             adherent_DTO.Email = InputEmail.Text;
-            //TODO : Ajouter Date_Adhesion / Actif
+            adherent_DTO.Actif = InputActif.AcceptsReturn;
 
             apiclient.AdherentPOSTAsync(adherent_DTO);
         }
         #endregion
-        */
+
+        #region BtnDelete
+        private void BtnDelete(object sender, RoutedEventArgs e)
+        {
+            if (GestionnaireDeFenetres.AdherentDelete == null)
+            {
+                GestionnaireDeFenetres.AdherentDelete = new AdherentDelete();
+            }
+            //.Navigate(GestionnaireDeFenetres.AdherentDelete); // Todo : Trouver comment naviguer sur une autre page depuis une page secondaire
+        }
+        #endregion
     }
 }

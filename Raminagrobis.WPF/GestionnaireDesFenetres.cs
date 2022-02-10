@@ -13,5 +13,6 @@ namespace Raminagrobis.WPF
         static public Fournisseur Fournisseur { get; set; }
         static public Produits Produits { get; set; }
         static public Proposition Proposition { get; set; }
+        static public AdherentDelete AdherentDelete { get; set; }
     }
 }

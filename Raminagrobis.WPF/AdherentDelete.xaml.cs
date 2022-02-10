@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Net.Http;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -19,12 +19,12 @@ using Raminagrobis.DTO.DTO;
 namespace Raminagrobis.WPF
 {
     /// <summary>
-    /// Logique d'interaction pour Produits.xaml
+    /// Logique d'interaction pour Adherents.xaml
     /// </summary>
-    public partial class Produits : Page
+    public partial class AdherentDelete : Page
     {
-        #region Produits
-        public Produits()
+        #region InitializeComponent
+        public AdherentDelete()
         {
             InitializeComponent();
         }
@@ -34,24 +34,19 @@ namespace Raminagrobis.WPF
         private async void LoadPage(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
-            var produit = await apiclient.AdherentAllAsync();
+            var adherent = await apiclient.AdherentAllAsync();
 
-            lvProduits.ItemsSource = produit;
+            lvAdherents.ItemsSource = adherent;
         }
         #endregion
 
-        #region BtnGetAll
-        private void BtnGetAll(object sender, RoutedEventArgs e)
+        #region BtnAdherentDelete
+        public void BtnAdherentDelete(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
-            List<Produit> items = new List<Produit>();
-            items.Add(new Produit() { Reference = "Hey", Libelle = "ho", Marque = " Hoy", Actif = true, ID = 1 });
-            lvProduits.ItemsSource = items;
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvProduits.ItemsSource);
+            var apiclient = new Client("https://localhost:/44345", new HttpClient());
+            int ID = Int32.Parse(DeleteID.Text);
+            apiclient.AdherentDELETEAsync(ID);
         }
         #endregion
-
-        
     }
 }
