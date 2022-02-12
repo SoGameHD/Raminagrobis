@@ -19,24 +19,19 @@ using Raminagrobis.DTO.DTO;
 namespace Raminagrobis.WPF
 {
     /// <summary>
-    /// Logique d'interaction pour Adherents.xaml
+    /// Logique d'interaction pour FournisseurDelete.xaml
     /// </summary>
-    public partial class Adherents : Page
+    public partial class ProduitsInsert : Page
     {
-        #region InitializeComponent
-        public Adherents()
+        public ProduitsInsert()
         {
             InitializeComponent();
         }
-        #endregion
-
         #region LoadPage
         private async void LoadPage(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
             var adherent = await apiclient.AdherentAllAsync();
-           
-            lvAdherents.ItemsSource = adherent;
         }
         #endregion
     }

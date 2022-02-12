@@ -19,12 +19,12 @@ using Raminagrobis.DTO.DTO;
 namespace Raminagrobis.WPF
 {
     /// <summary>
-    /// Logique d'interaction pour Adherents.xaml
+    /// Logique d'interaction pour FournisseurDelete.xaml
     /// </summary>
-    public partial class Adherents : Page
+    public partial class FournisseurInsert : Page
     {
         #region InitializeComponent
-        public Adherents()
+        public FournisseurInsert()
         {
             InitializeComponent();
         }
@@ -35,9 +35,25 @@ namespace Raminagrobis.WPF
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
             var adherent = await apiclient.AdherentAllAsync();
-           
-            lvAdherents.ItemsSource = adherent;
         }
         #endregion
+
+        #region BtnInsert
+        private void BtnInsert(object sender, RoutedEventArgs e)
+        {
+            var apiclient = new Client("https://localhost:/44345", new HttpClient());
+            Fournisseur_DTO fournisseur_DTO = new Fournisseur_DTO();
+            fournisseur_DTO.Societe = InputSociete.Text;
+            fournisseur_DTO.Civilite = InputCivilite.AcceptsReturn;
+            fournisseur_DTO.Nom = InputNom.Text;
+            fournisseur_DTO.Prenom = InputPrenom.Text;
+            fournisseur_DTO.Email = InputEmail.Text;
+            fournisseur_DTO.Adresse = InputAdresse.Text;
+            fournisseur_DTO.Actif = InputActif.AcceptsReturn;
+
+            apiclient.FournisseursPOSTAsync(fournisseur_DTO);
+        }
+        #endregion
+
     }
 }

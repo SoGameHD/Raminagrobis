@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Net.Http;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -19,12 +19,12 @@ using Raminagrobis.DTO.DTO;
 namespace Raminagrobis.WPF
 {
     /// <summary>
-    /// Logique d'interaction pour Proposition.xaml
+    /// Logique d'interaction pour FournisseurDelete.xaml
     /// </summary>
-    public partial class Proposition : Page
+    public partial class FournisseurDelete : Page
     {
-        #region Proposition
-        public Proposition()
+        #region InitializeComponent
+        public FournisseurDelete()
         {
             InitializeComponent();
         }
@@ -34,21 +34,18 @@ namespace Raminagrobis.WPF
         private async void LoadPage(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
-            var proposition = await apiclient.AdherentAllAsync();
+            var fournisseur = await apiclient.AdherentAllAsync();
 
-            lvProposition.ItemsSource = proposition;
+            lvFournisseurs.ItemsSource = fournisseur;
         }
         #endregion
 
-        #region BtnGetAll
-        private void BtnGetAll(object sender, RoutedEventArgs e)
+        #region BtnFournisseurDelete
+        public void BtnFournisseurDelete(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
-            List<UneProposition> items = new List<UneProposition>();
-            items.Add(new UneProposition() { Prix = 4, ID_ligne_global = 2, ID_fournisseur = 3 });
-            lvProposition.ItemsSource = items;
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvProposition.ItemsSource);
+            var apiclient = new Client("https://localhost:/44345", new HttpClient());
+            int ID = Int32.Parse(DeleteID.Text);
+            apiclient.FournisseursDELETEAsync(ID);
         }
         #endregion
     }

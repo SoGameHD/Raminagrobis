@@ -38,20 +38,6 @@ namespace Raminagrobis.WPF
 
             lvProduits.ItemsSource = produit;
         }
-        #endregion
-
-        #region BtnGetAll
-        private void BtnGetAll(object sender, RoutedEventArgs e)
-        {
-            InitializeComponent();
-            List<Produit> items = new List<Produit>();
-            items.Add(new Produit() { Reference = "Hey", Libelle = "ho", Marque = " Hoy", Actif = true, ID = 1 });
-            lvProduits.ItemsSource = items;
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvProduits.ItemsSource);
-        }
-        #endregion
-
-        
+        #endregion  
     }
 }

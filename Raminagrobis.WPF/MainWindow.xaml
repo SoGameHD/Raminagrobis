@@ -9,15 +9,11 @@
     <Grid>
         <StackPanel Orientation="Horizontal" Height="35" VerticalAlignment="Top">
             <Button Content="Page Adherents" MinWidth="100" Margin="10 0 0 0" Click="BtnAdherent"/>
-
             <Button Content="Page Fournisseur" MinWidth="100" Margin="10 0 0 0" Click="BtnFournisseur"/>
-
-            <Button Content="Page LignesAdherents" MinWidth="100" Margin="10 0 0 0" Click="BtnLignesAdherents"/>
-            <Button Content="Page LignesGlobal" MinWidth="100" Margin="10 0 0 0" Click="BtnLignesGlobal"/>
-
+            <Button Content="Page Paniers" MinWidth="100" Margin="10 0 0 0" Click="BtnPaniers"/>
             <Button Content="Page Produits" MinWidth="100" Margin="10 0 0 0" Click="BtnProduits"/>
-            <Button Content="Page Proposition" MinWidth="100" Margin="10 0 0 0" Click="BtnProposition"/>
-
+            <Button Content="Page Insert" MinWidth="100" Margin="250 0 0 0" Click="BtnInsert"/>
+            <Button Content="Page Delete" MinWidth="100" Margin="10 0 0 0" Click="BtnDelete"/>
         </StackPanel>
         <Frame x:Name="Main" NavigationUIVisibility="Hidden" Margin="0 35 0 0" />
     </Grid>

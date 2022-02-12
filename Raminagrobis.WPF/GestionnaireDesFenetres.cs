@@ -8,11 +8,11 @@ namespace Raminagrobis.WPF
 {
     static class GestionnaireDeFenetres
     {
-        static public MainWindow MainWindow { get; set; }
-        static public Adherents Adherents { get; set; }
-        static public Fournisseur Fournisseur { get; set; }
-        static public Produits Produits { get; set; }
-        static public Proposition Proposition { get; set; }
-        static public AdherentDelete AdherentDelete { get; set; }
+        static public MainWindow MainWindow;
+        static public Adherents Adherents;
+        static public Fournisseur Fournisseur;
+        static public Paniers Paniers;
+        static public Produits Produits;
+        
     }
 }

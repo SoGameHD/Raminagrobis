@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Raminagrobis.API.Client;
-using Raminagrobis.DTO;
+using Raminagrobis.DTO.DTO;
 
 namespace Raminagrobis.WPF
 {
@@ -31,7 +31,7 @@ namespace Raminagrobis.WPF
         #endregion
 
         #region LoadPage
-        private async void LoadPage(object sender, RoutedEventArgs e)
+        private void LoadPage(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
             GestionnaireDeFenetres.MainWindow = this;
@@ -60,6 +60,17 @@ namespace Raminagrobis.WPF
         }
         #endregion
 
+        #region BtnPaniers
+        private void BtnPaniers(object sender, RoutedEventArgs e)
+        {
+            if (GestionnaireDeFenetres.Paniers == null)
+            {
+                GestionnaireDeFenetres.Paniers = new Paniers();
+            }
+            Main.Navigate(GestionnaireDeFenetres.Paniers);
+        }
+        #endregion
+
         #region BtnProduits
         private void BtnProduits(object sender, RoutedEventArgs e)
         {
@@ -71,14 +82,78 @@ namespace Raminagrobis.WPF
         }
         #endregion
 
-        #region BtnProposition
-        private void BtnProposition(object sender, RoutedEventArgs e)
+        #region BtnInsert
+        private void BtnInsert(object sender, RoutedEventArgs e)
         {
-            if (GestionnaireDeFenetres.Proposition == null)
+            if (Main.Content != null)
             {
-                GestionnaireDeFenetres.Proposition = new Proposition();
+                if (Main.Content.GetType() == typeof(Adherents))
+                {
+                    Main.Content = new AdherentInsert();
+                }
+                if (Main.Content.GetType() == typeof(Fournisseur))
+                {
+                    Main.Content = new FournisseurInsert();
+                }
+                if (Main.Content.GetType() == typeof(Paniers))
+                {
+                    //Main.Content = new PaniersInsert();
+                }
+                if (Main.Content.GetType() == typeof(Produits))
+                {
+                    Main.Content = new ProduitsInsert();
+                }
             }
-            Main.Navigate(GestionnaireDeFenetres.Proposition);
+        }
+        #endregion
+
+        #region BtnUpdate
+        private void BtnUpdate(object sender, RoutedEventArgs e)
+        {
+            if (Main.Content != null)
+            {
+                if (Main.Content.GetType() == typeof(Adherents))
+                {
+                    Main.Content = new AdherentUpdate();
+                }
+                if (Main.Content.GetType() == typeof(Fournisseur))
+                {
+                    Main.Content = new FournisseurUpdate();
+                }
+                if (Main.Content.GetType() == typeof(Paniers))
+                {
+                    //Main.Content = new PaniersUpdate();
+                }
+                if (Main.Content.GetType() == typeof(Produits))
+                {
+                    Main.Content = new ProduitsUpdate();
+                }
+            }
+        }
+        #endregion
+
+        #region BtnDelete
+        private void BtnDelete(object sender, RoutedEventArgs e)
+        {
+            if (Main.Content != null)
+            {
+                if (Main.Content.GetType() == typeof(Adherents))
+                {
+                    Main.Content = new AdherentDelete();
+                }
+                if (Main.Content.GetType() == typeof(Fournisseur))
+                {
+                    Main.Content = new FournisseurDelete();
+                }
+                if (Main.Content.GetType() == typeof(Paniers))
+                {
+                    //Main.Content = new PaniersDelete();
+                }
+                if (Main.Content.GetType() == typeof(Produits))
+                {
+                    Main.Content = new ProduitsDelete();
+                }
+            }
         }
         #endregion
     }

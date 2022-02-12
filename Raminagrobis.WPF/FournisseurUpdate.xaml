@@ -1,0 +1,32 @@
+﻿<Page x:Class="Raminagrobis.WPF.FournisseurUpdate"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Raminagrobis.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FournisseurUpdate">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="225"/>
+            <RowDefinition Height="225"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="Societe" Text="Societe" FontSize="16px" Margin="291,83,424,112"/>
+        <TextBlock Text="Civilite" FontSize="16px" Margin="291,123,424,72"/>
+        <TextBlock Text="Nom" FontSize="16px" Margin="291,163,424,32"/>
+        <TextBlock Text="Prenom" FontSize="16px" Margin="291,203,424,217" Grid.RowSpan="2"/>
+        <TextBlock Text="Email" FontSize="16px" Margin="291,18,424,177" Grid.Row="1"/>
+        <TextBlock Text="Adresse" FontSize="16px" Margin="291,58,424,137" Grid.Row="1"/>
+        <TextBlock Text="Actif" FontSize="16px" Margin="291,97,424,98" Grid.Row="1"/>
+        <TextBox x:Name="UpdateSociete" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,83,309,112" />
+        <TextBox x:Name="UpdateCivilite" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,123,309,72" />
+        <TextBox x:Name="UpdateNom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,163,309,32" />
+        <TextBox x:Name="UpdatePrenom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,203,309,217" Grid.RowSpan="2" />
+        <TextBox x:Name="UpdateEmail" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,18,309,177" Grid.Row="1" />
+        <TextBox x:Name="UpdateAdresse" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,58,309,137" Grid.Row="1" />
+        <TextBox x:Name="UpdateActif" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,97,309,98" Grid.Row="1" />
+        <Button Content="Modifier" Margin="371,141,319,44" Click="BtnUpdate" Grid.Row="1"/>
+    </Grid>
+</Page>

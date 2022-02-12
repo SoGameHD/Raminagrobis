@@ -13,31 +13,19 @@
             <RowDefinition Height="173*"/>
             <RowDefinition Height="277*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="Liste" Text="Page Fournisseurs" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32px" Margin="250,52,259,77.8" Width="291"/>
-        <TextBlock x:Name="OutputSociete" Text="Societe" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,120,624,24.8" Height="28" Width="88"/>
-        <TextBlock Text="Civilite" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,120.2,624,128.6" Height="28" Width="88" Grid.Row="1"/>
-        <TextBlock Text="Nom" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,162,624,259.6" Height="28" Width="88" Grid.RowSpan="2"/>
-        <TextBlock Text="Prenom" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,32.2,624,216.6" Height="28" Width="88" Grid.Row="1"/>
-        <TextBlock Text="Email" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16px" Margin="88,74.2,624,174.6" Height="28" Width="88" Grid.Row="1"/>
-        <TextBox x:Name="InputFournisseursSociete" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,24.8" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="108" />
-        <TextBox x:Name="InputFournisseursNom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,258.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.RowSpan="2" />
-        <TextBox x:Name="InputFournisseursPrenom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,216.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.Row="1" />
-        <TextBox x:Name="InputFournisseursEmail" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,175.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.Row="1" />
-        <TextBox x:Name="InputFournisseursCivilite" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="0,0,498,128.6" HorizontalAlignment="Right" Width="108" Height="28" VerticalAlignment="Bottom" Grid.Row="1" />
-        <Button Content="Add" Margin="211,176.2,515,71.6" Click="BtnAdd" Grid.Row="1"/>
-        <ListView Name="lvFournisseurs" Margin="323,120,22,128.6" Grid.RowSpan="2">
+        <ListView Name="lvFournisseurs" Margin="0,35,0,0" Grid.RowSpan="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Societe" Width="80" DisplayMemberBinding="{Binding Societe}" />
-                    <GridViewColumn Header="Nom" Width="80" DisplayMemberBinding="{Binding Nom}" />
-                    <GridViewColumn Header="Prenom" Width="80" DisplayMemberBinding="{Binding Prenom}" />
-                    <GridViewColumn Header="Email" Width="80" DisplayMemberBinding="{Binding Email}" />
-                    <GridViewColumn Header="Civilite" Width="50" DisplayMemberBinding="{Binding Civilite}" />
-                    <GridViewColumn Header="Actif" Width="80" DisplayMemberBinding="{Binding Actif}" />
+                    <GridViewColumn Header="Societe" Width="90" DisplayMemberBinding="{Binding Societe}" />
+                    <GridViewColumn Header="Civilite" Width="90" DisplayMemberBinding="{Binding Civilite}" />
+                    <GridViewColumn Header="Nom" Width="90" DisplayMemberBinding="{Binding Nom}" />
+                    <GridViewColumn Header="Prenom" Width="90" DisplayMemberBinding="{Binding Prenom}" />
+                    <GridViewColumn Header="Email" Width="110" DisplayMemberBinding="{Binding Email}" />
+                    <GridViewColumn Header="Adresse" Width="140" DisplayMemberBinding="{Binding Adresse}" />
+                    <GridViewColumn Header="Actif" Width="90" DisplayMemberBinding="{Binding Actif}" />
+                    <GridViewColumn Header="ID" Width="90" DisplayMemberBinding="{Binding ID}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Afficher Liste" Margin="642,176,84,72" Click="BtnGetAll" Grid.Row="1"/>
-        <Button Content="Supprimer" Margin="444,176,282,72" Click="BtnDelete" Grid.Row="1"/>
     </Grid>
 </Page>

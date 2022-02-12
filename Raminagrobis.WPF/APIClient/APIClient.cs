@@ -1177,18 +1177,18 @@ namespace Raminagrobis.API.Client
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Produits_DTO>> ReferenceAllAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Produits_DTO>> ProduitsAllAsync()
         {
-            return ReferenceAllAsync(System.Threading.CancellationToken.None);
+            return ProduitsAllAsync(System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Produits_DTO>> ReferenceAllAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Produits_DTO>> ProduitsAllAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/reference");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/produits");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1251,18 +1251,18 @@ namespace Raminagrobis.API.Client
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task ReferenceDELETEAsync()
+        public System.Threading.Tasks.Task ProduitsPUTAsync()
         {
-            return ReferenceDELETEAsync(System.Threading.CancellationToken.None);
+            return ProduitsPUTAsync(System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task ReferenceDELETEAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task ProduitsPUTAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/reference");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/produits");
 
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1270,7 +1270,7 @@ namespace Raminagrobis.API.Client
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
                 {
-                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+                    request_.Method = new System.Net.Http.HttpMethod("PUT");
 
                     PrepareRequest(client_, request_, urlBuilder_);
 
@@ -1319,21 +1319,21 @@ namespace Raminagrobis.API.Client
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<Produits_DTO> ReferenceGETAsync(int id)
+        public System.Threading.Tasks.Task<Produits_DTO> ProduitsGETAsync(int id)
         {
-            return ReferenceGETAsync(id, System.Threading.CancellationToken.None);
+            return ProduitsGETAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<Produits_DTO> ReferenceGETAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<Produits_DTO> ProduitsGETAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
 
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/reference/{id}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/produits/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
             var client_ = _httpClient;
@@ -1397,21 +1397,21 @@ namespace Raminagrobis.API.Client
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task ReferenceDELETE2Async(int id)
+        public System.Threading.Tasks.Task ProduitsDELETEAsync(int id)
         {
-            return ReferenceDELETE2Async(id, System.Threading.CancellationToken.None);
+            return ProduitsDELETEAsync(id, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task ReferenceDELETE2Async(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task ProduitsDELETEAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
 
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/reference/{id}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/produits/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
             var client_ = _httpClient;
@@ -1469,21 +1469,21 @@ namespace Raminagrobis.API.Client
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task ReferencePOSTAsync(int idFournisseur, FileParameter file)
+        public System.Threading.Tasks.Task ProduitsPOSTAsync(int idFournisseur, FileParameter file)
         {
-            return ReferencePOSTAsync(idFournisseur, file, System.Threading.CancellationToken.None);
+            return ProduitsPOSTAsync(idFournisseur, file, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task ReferencePOSTAsync(int idFournisseur, FileParameter file, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task ProduitsPOSTAsync(int idFournisseur, FileParameter file, System.Threading.CancellationToken cancellationToken)
         {
             if (idFournisseur == null)
                 throw new System.ArgumentNullException("idFournisseur");
 
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/reference/{idFournisseur}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/produits/{idFournisseur}");
             urlBuilder_.Replace("{idFournisseur}", System.Uri.EscapeDataString(ConvertToString(idFournisseur, System.Globalization.CultureInfo.InvariantCulture)));
 
             var client_ = _httpClient;

@@ -1,0 +1,31 @@
+﻿<Page x:Class="Raminagrobis.WPF.AdherentInsert"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Raminagrobis.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdherentInsert">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="225"/>
+            <RowDefinition Height="225"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="Liste" Text="Ajouter Adherents" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="32px" Height="42" Width="276" Margin="0,35,0,0"/>
+        <TextBlock x:Name="Societe" Text="Societe" FontSize="16px" Margin="248,107,467,88"/>
+        <TextBlock Text="Civilite" FontSize="16px" Margin="248,147,467,48"/>
+        <TextBlock Text="Nom" FontSize="16px" Margin="248,187,467,8"/>
+        <TextBlock Text="Prenom" FontSize="16px" Margin="248,2,467,192" Grid.Row="1"/>
+        <TextBlock Text="Email" FontSize="16px" Margin="248,43,467,152" Grid.Row="1"/>
+        <TextBlock Text="Actif" FontSize="16px" Margin="248,83,467,112" Grid.Row="1"/>
+        <TextBox x:Name="InputSociete" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="318,107,352,88" />
+        <TextBox x:Name="InputCivilite" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="318,147,352,48" />
+        <TextBox x:Name="InputNom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="318,187,352,8" />
+        <TextBox x:Name="InputPrenom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="318,2,352,192" Grid.Row="1" />
+        <TextBox x:Name="InputEmail" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="318,43,352,152" Grid.Row="1" />
+        <TextBox x:Name="InputActif" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="318,83,352,112" Grid.Row="1" />
+        <Button Content="Insert" Margin="328,142,362,43" Click="BtnInsert" Grid.Row="1"/>
+    </Grid>
+</Page>

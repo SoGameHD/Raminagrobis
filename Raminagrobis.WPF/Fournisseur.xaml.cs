@@ -41,18 +41,7 @@ namespace Raminagrobis.WPF
         #endregion
 
         /*
-        #region BtnAdd
-        private void BtnAdd(object sender, RoutedEventArgs e)
-        {
-            Liste.Text = "Il y a bcp de fournisseurs";
-            OutputSociete.Text = InputFournisseursSociete.Text;
-            InputFournisseursCivilite.Text = "Civilite";
-            InputFournisseursEmail.Text = "Email";
-            InputFournisseursNom.Text = "Nom";
-            InputFournisseursPrenom.Text = "Prenom";
-            InputFournisseursSociete.Text = "Societe";
-        }
-        #endregion
+        
 
         #region BtnGetAll
         private void BtnGetAll(object sender, RoutedEventArgs e)
