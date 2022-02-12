@@ -1,0 +1,34 @@
+﻿<Page x:Class="Raminagrobis.WPF.AdherentDelete"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Raminagrobis.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Adherents Suppresion">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="225"/>
+            <RowDefinition Height="225"/>
+        </Grid.RowDefinitions>
+        <ListView Name="lvAdherents" Margin="0,35,0,100" Grid.RowSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Societe" Width="100" DisplayMemberBinding="{Binding Societe}" />
+                    <GridViewColumn Header="Nom" Width="100" DisplayMemberBinding="{Binding Nom}" />
+                    <GridViewColumn Header="Prenom" Width="100" DisplayMemberBinding="{Binding Prenom}" />
+                    <GridViewColumn Header="Email" Width="100" DisplayMemberBinding="{Binding Email}" />
+                    <GridViewColumn Header="Civilite" Width="100" DisplayMemberBinding="{Binding Civilite}" />
+                    <GridViewColumn Header="Date Adhesion" Width="100" DisplayMemberBinding="{Binding Date_adhesion}" />
+                    <GridViewColumn Header="Actif" Width="100" DisplayMemberBinding="{Binding Actif}" />
+                    <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding ID}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock x:Name="TextView" Text="Saisir l'ID à supprimer :" FontSize="16px" Margin="144,144,486,51" Grid.Row="1"/>
+        <TextBox Name="DeleteID" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="324,139,336,46" Grid.Row="1" />
+        <Button Content="Supprimer" Margin="554,139,136,46" Click="BtnAdherentDelete" Grid.Row="1"/>
+    </Grid>
+</Page>

@@ -1,0 +1,31 @@
+﻿<Page x:Class="Raminagrobis.WPF.Fournisseur"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Raminagrobis.WPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Fournisseur">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="173*"/>
+            <RowDefinition Height="277*"/>
+        </Grid.RowDefinitions>
+        <ListView Name="lvFournisseurs" Margin="0,35,0,0" Grid.RowSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Societe" Width="90" DisplayMemberBinding="{Binding Societe}" />
+                    <GridViewColumn Header="Civilite" Width="90" DisplayMemberBinding="{Binding Civilite}" />
+                    <GridViewColumn Header="Nom" Width="90" DisplayMemberBinding="{Binding Nom}" />
+                    <GridViewColumn Header="Prenom" Width="90" DisplayMemberBinding="{Binding Prenom}" />
+                    <GridViewColumn Header="Email" Width="110" DisplayMemberBinding="{Binding Email}" />
+                    <GridViewColumn Header="Adresse" Width="140" DisplayMemberBinding="{Binding Adresse}" />
+                    <GridViewColumn Header="Actif" Width="90" DisplayMemberBinding="{Binding Actif}" />
+                    <GridViewColumn Header="ID" Width="90" DisplayMemberBinding="{Binding ID}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

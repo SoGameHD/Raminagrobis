@@ -1,3 +1,4 @@
+using Raminagrobis.DAL.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -5,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raminagrobis.DAL
+namespace Raminagrobis.DAL.Depot
 {
     public class CommandeAdherentsDepot_DAL : Depot_DAL<CommandeAdherents_DAL>
     {
@@ -93,7 +94,7 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@ID", commandes.ID));
             commande.Parameters.Add(new SqlParameter("@ID_adherent", commandes.ID_adherent));
             commande.Parameters.Add(new SqlParameter("@ID_panier", commandes.ID_panier));
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
             {
@@ -113,7 +114,7 @@ namespace Raminagrobis.DAL
             commande.CommandText = "DELETE FROM Commandes WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID", commandes.ID));
 
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees < 0)
             {

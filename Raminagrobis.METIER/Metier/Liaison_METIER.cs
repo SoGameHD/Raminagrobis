@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Raminagrobis.DAL;
+using Raminagrobis.DAL.DAL;
+using Raminagrobis.DAL.Depot;
 
-namespace Raminagrobis.METIER
+namespace Raminagrobis.METIER.Metier
 {
     public class Liaison_METIER
     {
@@ -17,7 +18,7 @@ namespace Raminagrobis.METIER
         #region Insert
         public void Insert()
         {
-            Liaison_DAL Liaison = new Liaison_DAL(ID_produit,ID_fournisseur);
+            Liaison_DAL Liaison = new Liaison_DAL(ID_produit, ID_fournisseur);
 
             var depotLiaison = new LiaisonDepot_DAL();
 

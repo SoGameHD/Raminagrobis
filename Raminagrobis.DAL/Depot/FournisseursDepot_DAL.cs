@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Raminagrobis.DAL.DAL;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raminagrobis.DAL
+namespace Raminagrobis.DAL.Depot
 {
     public class FournisseursDepot_DAL : Depot_DAL<Fournisseurs_DAL>
     {
@@ -109,7 +110,7 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@Adresse", fournisseur.Adresse));
             commande.Parameters.Add(new SqlParameter("@Actif", fournisseur.Actif));
             commande.Parameters.Add(new SqlParameter("@ID", fournisseur.ID));
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
             {
@@ -130,7 +131,7 @@ namespace Raminagrobis.DAL
             commande.CommandText = "DELETE FROM Fournisseurs WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID", fournisseur.ID));
 
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees < 0)
             {

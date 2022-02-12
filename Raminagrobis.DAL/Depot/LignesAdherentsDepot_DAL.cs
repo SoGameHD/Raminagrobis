@@ -4,8 +4,9 @@ using System.Linq;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
+using Raminagrobis.DAL.DAL;
 
-namespace Raminagrobis.DAL
+namespace Raminagrobis.DAL.Depot
 {
     public class LignesAdherentsDepot_DAL : Depot_DAL<LignesAdherents_DAL>
     {
@@ -109,6 +110,10 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@ID_commande", lignesAdherent.ID_commande));
             commande.Parameters.Add(new SqlParameter("@ID_ligne_global", lignesAdherent.ID_ligne_global));
             commande.Parameters.Add(new SqlParameter("@Quantite", lignesAdherent.Quantite));
+            var ID_produit = Convert.ToInt32((decimal)commande.ExecuteScalar());
+            var ID_commande = Convert.ToInt32((decimal)commande.ExecuteScalar());
+            lignesAdherent.ID_produit = ID_produit;
+            lignesAdherent.ID_commande = ID_commande;
 
             DetruireConnexionEtCommande();
 
@@ -126,7 +131,7 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@ID_commande", lignesAdherent.ID_commande));
             commande.Parameters.Add(new SqlParameter("@ID_ligne_global", lignesAdherent.ID_ligne_global));
             commande.Parameters.Add(new SqlParameter("@Quantite", lignesAdherent.Quantite));
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
             {

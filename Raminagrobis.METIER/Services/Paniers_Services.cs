@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Raminagrobis.DAL;
-using Raminagrobis.METIER;
-using Raminagrobis.DTO;
+using Raminagrobis.DAL.DAL;
+using Raminagrobis.DAL.Depot;
+using Raminagrobis.METIER.Metier;
+using Raminagrobis.DTO.DTO;
 
 namespace Raminagrobis.METIER.Services
 {

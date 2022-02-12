@@ -1,7 +1,8 @@
 ﻿using System;
-using Raminagrobis.DAL;
+using Raminagrobis.DAL.DAL;
+using Raminagrobis.DAL.Depot;
 
-namespace Raminagrobis.METIER
+namespace Raminagrobis.METIER.Metier
 {
     public class Fournisseurs_METIER
     {

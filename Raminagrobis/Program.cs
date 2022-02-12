@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Raminagrobis.DAL;
+using Raminagrobis.DAL.DAL;
+using Raminagrobis.DAL.Depot;
 
-namespace Raminagrobis
+namespace Raminagrobis_Console
 {
     class Program
     {
@@ -21,6 +22,7 @@ namespace Raminagrobis
 
             depotFournisseurs2.Insert(Fournisseur);
             depotFournisseurs2.Delete(Fournisseur);
+            
         }
     }
 }

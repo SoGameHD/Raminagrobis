@@ -4,8 +4,9 @@ using System.Linq;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
+using Raminagrobis.DAL.DAL;
 
-namespace Raminagrobis.DAL
+namespace Raminagrobis.DAL.Depot
 {
     public class LignesGlobalDepot_DAL : Depot_DAL<LignesGlobal_DAL>
     {
@@ -95,7 +96,7 @@ namespace Raminagrobis.DAL
             commande.Parameters.Add(new SqlParameter("@Quantite", lignesGlobal.Quantite));
             commande.Parameters.Add(new SqlParameter("@ID_produit", lignesGlobal.ID_produit));
             commande.Parameters.Add(new SqlParameter("@ID", lignesGlobal.ID));
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees != 1)
             {
@@ -116,7 +117,7 @@ namespace Raminagrobis.DAL
             commande.CommandText = "DELETE FROM LignesGlobal WHERE ID = @ID";
             commande.Parameters.Add(new SqlParameter("@ID", lignesGlobal.ID));
 
-            var nombreDeLignesAffectees = (int)commande.ExecuteNonQuery();
+            var nombreDeLignesAffectees = commande.ExecuteNonQuery();
 
             if (nombreDeLignesAffectees < 0)
             {

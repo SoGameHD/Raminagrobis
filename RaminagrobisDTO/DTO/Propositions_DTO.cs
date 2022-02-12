@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Raminagrobis.DTO
+namespace Raminagrobis.DTO.DTO
 {
     public class Propositions_DTO
     {
