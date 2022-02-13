@@ -34,5 +34,19 @@ namespace Raminagrobis.WPF
             var adherent = await apiclient.AdherentAllAsync();
         }
         #endregion
+
+        #region BtnInsert
+        private void BtnInsert(object sender, RoutedEventArgs e)
+        {
+            var apiclient = new Client("https://localhost:/44345", new HttpClient());
+            Produits_DTO produits_DTO = new Produits_DTO();
+            produits_DTO.Reference = InputReference.Text;
+            produits_DTO.Libelle = InputLibelle.Text;
+            produits_DTO.Marque = InputMarque.Text;
+            produits_DTO.Actif = Boolean.Parse(InputActif.Text);
+
+            apiclient.ProduitsPOSTAsync(produits_DTO);
+        }
+        #endregion
     }
 }

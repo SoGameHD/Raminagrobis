@@ -26,5 +26,7 @@
         <TextBox x:Name="UpdateEmail" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,43,309,152" Grid.Row="1" />
         <TextBox x:Name="UpdateActif" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,83,309,112" Grid.Row="1" />
         <Button Content="Modifier" Margin="371,141,319,44" Click="BtnUpdate" Grid.Row="1"/>
+        <TextBlock Text="ID" FontSize="16px" Margin="521,83,194,112" Grid.Row="1"/>
+        <TextBox x:Name="ID" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="591,83,79,112" Grid.Row="1" />
     </Grid>
 </Page>
