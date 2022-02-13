@@ -13,6 +13,7 @@
             <Button Content="Page Paniers" MinWidth="100" Margin="10 0 0 0" Click="BtnPaniers"/>
             <Button Content="Page Produits" MinWidth="100" Margin="10 0 0 0" Click="BtnProduits"/>
             <Button Content="Page Insert" MinWidth="100" Margin="250 0 0 0" Click="BtnInsert"/>
+            <Button Content="Page Update" MinWidth="100" Margin="10 0 0 0" Click="BtnUpdate"/>
             <Button Content="Page Delete" MinWidth="100" Margin="10 0 0 0" Click="BtnDelete"/>
         </StackPanel>
         <Frame x:Name="Main" NavigationUIVisibility="Hidden" Margin="0 35 0 0" />
