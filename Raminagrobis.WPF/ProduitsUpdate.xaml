@@ -6,20 +6,9 @@
       xmlns:local="clr-namespace:Raminagrobis.WPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProduitsUpdate">
+      Title="FournisseurDelete">
 
     <Grid>
-        <TextBlock Text="Reference" FontSize="16px" Margin="291,108,424,312"/>
-        <TextBlock Text="Libelle" FontSize="16px" Margin="291,148,424,272"/>
-        <TextBlock Text="Marque" FontSize="16px" Margin="291,188,424,232"/>
-        <TextBlock Text="Actif" FontSize="16px" Margin="291,228,424,192"/>
-        <TextBox x:Name="UpdateReference" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,108,309,312" />
-        <TextBox x:Name="UpdateLibelle" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,148,309,272" />
-        <TextBox x:Name="UpdateMarque" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,188,309,232" />
-        <TextBox x:Name="UpdateActif" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,228,309,192" />
-        <TextBlock Text="ID" FontSize="16px" Margin="291,276,424,144"/>
-        <TextBox x:Name="ID" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,276,309,144" />
-        <Button Content="Modifier" Margin="371,336,319,74" Click="BtnUpdate"/>
-
+        
     </Grid>
 </Page>
