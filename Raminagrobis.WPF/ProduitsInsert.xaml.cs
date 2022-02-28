@@ -31,7 +31,7 @@ namespace Raminagrobis.WPF
         private async void LoadPage(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
-            var adherent = await apiclient.AdherentAllAsync();
+            var adherent = await apiclient.ProduitsGetAsync();
         }
         #endregion
 
@@ -43,9 +43,9 @@ namespace Raminagrobis.WPF
             produits_DTO.Reference = InputReference.Text;
             produits_DTO.Libelle = InputLibelle.Text;
             produits_DTO.Marque = InputMarque.Text;
-            produits_DTO.Actif = Boolean.Parse(InputActif.Text);
+            produits_DTO.Actif = InputActif.AcceptsReturn;
 
-            apiclient.ProduitsPOSTAsync(produits_DTO);
+            apiclient.ProduitsPostAsync(produits_DTO);
         }
         #endregion
     }

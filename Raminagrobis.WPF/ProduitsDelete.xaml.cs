@@ -32,7 +32,7 @@ namespace Raminagrobis.WPF
         private async void LoadPage(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
-            var produits = await apiclient.AdherentAllAsync();
+            var produits = await apiclient.ProduitsGetAsync();
 
             lvProduits.ItemsSource = produits;
         }
@@ -43,7 +43,7 @@ namespace Raminagrobis.WPF
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
             int ID = Int32.Parse(DeleteID.Text);
-            apiclient.PanierDELETEAsync(ID);
+            apiclient.ProduitsDeleteAsync(ID);
         }
         #endregion
     }

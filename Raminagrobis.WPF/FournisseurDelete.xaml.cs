@@ -34,7 +34,7 @@ namespace Raminagrobis.WPF
         private async void LoadPage(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
-            var fournisseur = await apiclient.AdherentAllAsync();
+            var fournisseur = await apiclient.AdherentsGetAsync();
 
             lvFournisseurs.ItemsSource = fournisseur;
         }
@@ -45,7 +45,7 @@ namespace Raminagrobis.WPF
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
             int ID = Int32.Parse(DeleteID.Text);
-            apiclient.FournisseursDELETEAsync(ID);
+            apiclient.FournisseursDeleteAsync(ID);
         }
         #endregion
     }

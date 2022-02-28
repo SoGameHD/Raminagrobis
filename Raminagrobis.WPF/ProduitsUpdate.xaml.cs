@@ -27,27 +27,28 @@ namespace Raminagrobis.WPF
         public ProduitsUpdate(Produits_DTO produits)
         {
             InitializeComponent();
+            this.UpdateID.Text = produits.ID.ToString();
             this.UpdateReference.Text = produits.Reference;
             this.UpdateLibelle.Text = produits.Libelle;
             this.UpdateMarque.Text = produits.Marque;
             this.UpdateActif.Text = produits.Actif.ToString();
-            this.ID.Text = produits.ID.ToString();
         }
         #endregion
 
-        #region BtnUpdate
+        #region BtnUpdate 
         public void BtnUpdate(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:44355/", new HttpClient());
             Produits_DTO produits = new Produits_DTO()
             {
+                ID = Int32.Parse(this.UpdateID.Text),
                 Reference = this.UpdateReference.Text,
                 Libelle = this.UpdateLibelle.Text,
                 Marque = this.UpdateMarque.Text,
                 Actif = Boolean.Parse(this.UpdateActif.Text),
             };
 
-            apiclient.ProduitsPUTAsync(Int32.Parse(this.ID.Text), produits);
+            apiclient.ProduitsPutAsync(Int32.Parse(this.id.Text), produits);
         }
         #endregion
     }

@@ -34,7 +34,7 @@ namespace Raminagrobis.WPF
         private async void LoadPage(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
-            var adherent = await apiclient.AdherentAllAsync();
+            var adherent = await apiclient.FournisseursGetAsync();
         }
         #endregion
 
@@ -44,14 +44,14 @@ namespace Raminagrobis.WPF
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
             Fournisseur_DTO fournisseur_DTO = new Fournisseur_DTO();
             fournisseur_DTO.Societe = InputSociete.Text;
-            fournisseur_DTO.Civilite = Boolean.Parse(InputCivilite.Text);
+            fournisseur_DTO.Civilite = InputCivilite.AcceptsReturn;
             fournisseur_DTO.Nom = InputNom.Text;
             fournisseur_DTO.Prenom = InputPrenom.Text;
             fournisseur_DTO.Email = InputEmail.Text;
             fournisseur_DTO.Adresse = InputAdresse.Text;
-            fournisseur_DTO.Actif = Boolean.Parse(InputActif.Text);
+            fournisseur_DTO.Actif = InputActif.AcceptsReturn;
 
-            apiclient.FournisseursPOSTAsync(fournisseur_DTO);
+            apiclient.FournisseursPostAsync(fournisseur_DTO);
         }
         #endregion
 

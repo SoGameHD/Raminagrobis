@@ -34,10 +34,27 @@ namespace Raminagrobis.WPF
         private async void LoadPage(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
-            var fournisseur = await apiclient.AdherentAllAsync();
+            var fournisseur = await apiclient.FournisseursGetAsync();
 
             lvFournisseurs.ItemsSource = fournisseur;
         }
         #endregion
+
+        /*
+        
+
+        #region BtnGetAll
+        private void BtnGetAll(object sender, RoutedEventArgs e)
+        {
+            InitializeComponent();
+            List<User> items = new List<User>();
+            items.Add(new User() { Societe = "John Doe", Civilite = true, Nom = "Nizae", Prenom = "Jean", Email = "Jean@gmail.com", Adresse = "Ici", ID = 3, Actif = true });
+
+            lvFournisseurs.ItemsSource = items;
+
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvFournisseurs.ItemsSource);
+        }
+        #endregion
+        */
     }
 }

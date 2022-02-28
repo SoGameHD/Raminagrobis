@@ -27,13 +27,13 @@ namespace Raminagrobis.WPF
         public AdherentUpdate(Adherent_DTO adherent)
         {
             InitializeComponent();
+            this.UpdateID.Text = adherent.ID.ToString();
             this.UpdateSociete.Text = adherent.Societe;
             this.UpdateCivilite.Text = adherent.Civilite.ToString();
             this.UpdateNom.Text = adherent.Nom;
             this.UpdatePrenom.Text = adherent.Prenom;
             this.UpdateEmail.Text = adherent.Email;
             this.UpdateActif.Text = adherent.Actif.ToString();
-            this.ID.Text = adherent.ID.ToString();
         }
         #endregion
 
@@ -43,6 +43,7 @@ namespace Raminagrobis.WPF
             var apiclient = new Client("https://localhost:44355/", new HttpClient());
             Adherent_DTO adherent = new Adherent_DTO()
             {
+                ID = Int32.Parse(this.UpdateID.Text),
                 Societe = this.UpdateSociete.Text,
                 Civilite = Boolean.Parse(this.UpdateCivilite.Text),
                 Nom = this.UpdateNom.Text,
@@ -51,7 +52,7 @@ namespace Raminagrobis.WPF
                 Actif = Boolean.Parse(this.UpdateActif.Text),
             };
 
-            apiclient.AdherentPUTAsync(Int32.Parse(this.ID.Text), adherent);
+            apiclient.AdherentsPutAsync(Int32.Parse(this.id.Text), adherent);
         }
         #endregion
     }

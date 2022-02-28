@@ -27,6 +27,7 @@ namespace Raminagrobis.WPF
         public FournisseurUpdate(Fournisseur_DTO fournisseur)
         {
             InitializeComponent();
+            this.UpdateID.Text = fournisseur.ID.ToString();
             this.UpdateSociete.Text = fournisseur.Societe;
             this.UpdateCivilite.Text = fournisseur.Civilite.ToString();
             this.UpdateNom.Text = fournisseur.Nom;
@@ -34,26 +35,25 @@ namespace Raminagrobis.WPF
             this.UpdateEmail.Text = fournisseur.Email;
             this.UpdateAdresse.Text = fournisseur.Adresse;
             this.UpdateActif.Text = fournisseur.Actif.ToString();
-            this.ID.Text = fournisseur.ID.ToString();
         }
         #endregion
 
-        #region BtnUpdate
+        #region BtnUpdate 
         public void BtnUpdate(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:44355/", new HttpClient());
             Fournisseur_DTO fournisseur = new Fournisseur_DTO()
             {
+                ID = Int32.Parse(this.UpdateID.Text),
                 Societe = this.UpdateSociete.Text,
                 Civilite = Boolean.Parse(this.UpdateCivilite.Text),
                 Nom = this.UpdateNom.Text,
                 Prenom = this.UpdatePrenom.Text,
                 Email = this.UpdateEmail.Text,
-                Adresse = this.UpdateAdresse.Text,
                 Actif = Boolean.Parse(this.UpdateActif.Text),
             };
 
-            apiclient.FournisseursPUTAsync(Int32.Parse(this.ID.Text), fournisseur);
+            apiclient.FournisseursPutAsync(Int32.Parse(this.id.Text), fournisseur);
         }
         #endregion
     }

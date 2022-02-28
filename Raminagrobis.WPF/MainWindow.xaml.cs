@@ -95,6 +95,10 @@ namespace Raminagrobis.WPF
                 {
                     Main.Content = new FournisseurInsert();
                 }
+                if (Main.Content.GetType() == typeof(Paniers))
+                {
+                    //Main.Content = new PaniersInsert();
+                }
                 if (Main.Content.GetType() == typeof(Produits))
                 {
                     Main.Content = new ProduitsInsert();
@@ -121,7 +125,7 @@ namespace Raminagrobis.WPF
                 if (Main.Content.GetType() == typeof(Produits))
                 {
                     Produits_DTO produits = (Produits_DTO)GestionnaireDeFenetres.Produits.lvProduits.SelectedItem;
-                    Main.Content = new ProduitsUpdate(produits);
+                    //Main.Content = new ProduitsUpdate(produits);
                 }
             }
         }
@@ -139,6 +143,10 @@ namespace Raminagrobis.WPF
                 if (Main.Content.GetType() == typeof(Fournisseur))
                 {
                     Main.Content = new FournisseurDelete();
+                }
+                if (Main.Content.GetType() == typeof(Paniers))
+                {
+                    //Main.Content = new PaniersDelete();
                 }
                 if (Main.Content.GetType() == typeof(Produits))
                 {
