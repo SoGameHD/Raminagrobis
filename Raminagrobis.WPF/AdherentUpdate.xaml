@@ -13,7 +13,8 @@
             <RowDefinition Height="225"/>
             <RowDefinition Height="225"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="Societe" Text="Societe" FontSize="16px" Margin="291,108,424,87"/>
+        <TextBlock x:Name="id" Text="id" FontSize="16px" Margin="291,68,424,125"/>
+        <TextBlock Text="Societe" FontSize="16px" Margin="291,108,424,87"/>
         <TextBlock Text="Civilite" FontSize="16px" Margin="291,148,424,47"/>
         <TextBlock Text="Nom" FontSize="16px" Margin="291,188,424,7"/>
         <TextBlock Text="Prenom" FontSize="16px" Margin="291,3,424,192" Grid.Row="1"/>
@@ -25,6 +26,7 @@
         <TextBox x:Name="UpdatePrenom" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,3,309,192" Grid.Row="1" />
         <TextBox x:Name="UpdateEmail" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,43,309,152" Grid.Row="1" />
         <TextBox x:Name="UpdateActif" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,83,309,112" Grid.Row="1" />
+        <TextBox x:Name="UpdateID" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,68,309,125" />
         <Button Content="Modifier" Margin="371,141,319,44" Click="BtnUpdate" Grid.Row="1"/>
     </Grid>
 </Page>

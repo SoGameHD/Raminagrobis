@@ -32,7 +32,7 @@ namespace Raminagrobis.WPF
         private async void LoadPage(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
-            var adherent = await apiclient.AdherentAllAsync();
+            var adherent = await apiclient.AdherentsGetAsync();
         }
         #endregion
 
@@ -48,7 +48,7 @@ namespace Raminagrobis.WPF
             adherent_DTO.Email = InputEmail.Text;
             adherent_DTO.Actif = InputActif.AcceptsReturn;
 
-            apiclient.AdherentPOSTAsync(adherent_DTO);
+            apiclient.AdherentsPostAsync(adherent_DTO);
         }
         #endregion
     }

@@ -34,7 +34,7 @@ namespace Raminagrobis.WPF
         private async void LoadPage(object sender, RoutedEventArgs e)
         {
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
-            var fournisseur = await apiclient.AdherentAllAsync();
+            var fournisseur = await apiclient.FournisseursGetAsync();
 
             lvFournisseurs.ItemsSource = fournisseur;
         }
