@@ -22,7 +22,6 @@ namespace Raminagrobis.METIER.Metier
         public Adherents_METIER(string societe, bool civilite, string nom, string prenom, string email, DateTime dateAdhesion, bool actif) => (Societe, Civilite, Nom, Prenom, Email, Date_adhesion, Actif) = (societe, civilite, nom, prenom, email, dateAdhesion, actif);
         public Adherents_METIER(int id, string societe, bool civilite, string nom, string prenom, string email, DateTime dateAdhesion, bool actif) => (ID, Societe, Civilite, Nom, Prenom, Email, Date_adhesion, Actif) = (id, societe, civilite, nom, prenom, email, dateAdhesion, actif);
 
-
         #region Insert
         public void Insert()
         {
