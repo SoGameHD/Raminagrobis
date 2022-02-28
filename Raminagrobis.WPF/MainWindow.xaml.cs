@@ -95,10 +95,6 @@ namespace Raminagrobis.WPF
                 {
                     Main.Content = new FournisseurInsert();
                 }
-                if (Main.Content.GetType() == typeof(Paniers))
-                {
-                    //Main.Content = new PaniersInsert();
-                }
                 if (Main.Content.GetType() == typeof(Produits))
                 {
                     Main.Content = new ProduitsInsert();
@@ -114,19 +110,18 @@ namespace Raminagrobis.WPF
             {
                 if (Main.Content.GetType() == typeof(Adherents))
                 {
-                    Main.Content = new AdherentUpdate();
+                    Adherent_DTO adherent = (Adherent_DTO)GestionnaireDeFenetres.Adherents.lvAdherents.SelectedItem;
+                    Main.Content = new AdherentUpdate(adherent);
                 }
                 if (Main.Content.GetType() == typeof(Fournisseur))
                 {
-                    Main.Content = new FournisseurUpdate();
-                }
-                if (Main.Content.GetType() == typeof(Paniers))
-                {
-                    //Main.Content = new PaniersUpdate();
+                    Fournisseur_DTO fournisseur = (Fournisseur_DTO)GestionnaireDeFenetres.Fournisseur.lvFournisseurs.SelectedItem;
+                    Main.Content = new FournisseurUpdate(fournisseur);
                 }
                 if (Main.Content.GetType() == typeof(Produits))
                 {
-                    Main.Content = new ProduitsUpdate();
+                    Produits_DTO produits = (Produits_DTO)GestionnaireDeFenetres.Produits.lvProduits.SelectedItem;
+                    Main.Content = new ProduitsUpdate(produits);
                 }
             }
         }
@@ -144,10 +139,6 @@ namespace Raminagrobis.WPF
                 if (Main.Content.GetType() == typeof(Fournisseur))
                 {
                     Main.Content = new FournisseurDelete();
-                }
-                if (Main.Content.GetType() == typeof(Paniers))
-                {
-                    //Main.Content = new PaniersDelete();
                 }
                 if (Main.Content.GetType() == typeof(Produits))
                 {

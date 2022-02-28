@@ -43,8 +43,8 @@ namespace Raminagrobis.METIER.Services
         }
         #endregion
 
-        #region Update
-        public void Update(int id, Produits_DTO input)
+        #region Edit
+        public void Edit(int id, Produits_DTO input)
         {
             var produits = new Produits_DAL(id, input.Reference, input.Libelle, input.Marque, input.Actif);
             var depot = new ProduitsDepot_DAL();

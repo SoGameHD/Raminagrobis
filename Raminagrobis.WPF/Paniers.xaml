@@ -9,6 +9,17 @@
       Title="Paniers">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="225"/>
+            <RowDefinition Height="225"/>
+        </Grid.RowDefinitions>
+        <ListView Name="lvPaniers" Margin="0,35,0,0" Grid.RowSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Libelle" Width="100" DisplayMemberBinding="{Binding Libelle}" />
+                    <GridViewColumn Header="ID" Width="100" DisplayMemberBinding="{Binding ID}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

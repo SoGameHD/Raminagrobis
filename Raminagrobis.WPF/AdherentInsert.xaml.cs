@@ -42,11 +42,11 @@ namespace Raminagrobis.WPF
             var apiclient = new Client("https://localhost:/44345", new HttpClient());
             Adherent_DTO adherent_DTO = new Adherent_DTO();
             adherent_DTO.Societe = InputSociete.Text;
-            adherent_DTO.Civilite = InputCivilite.AcceptsReturn;
+            adherent_DTO.Civilite = Boolean.Parse(InputCivilite.Text);
             adherent_DTO.Nom = InputNom.Text;
             adherent_DTO.Prenom = InputNom.Text;
             adherent_DTO.Email = InputEmail.Text;
-            adherent_DTO.Actif = InputActif.AcceptsReturn;
+            adherent_DTO.Actif = Boolean.Parse(InputActif.Text);
 
             apiclient.AdherentPOSTAsync(adherent_DTO);
         }

@@ -28,5 +28,7 @@
         <TextBox x:Name="UpdateAdresse" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,58,309,137" Grid.Row="1" />
         <TextBox x:Name="UpdateActif" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="361,97,309,98" Grid.Row="1" />
         <Button Content="Modifier" Margin="371,141,319,44" Click="BtnUpdate" Grid.Row="1"/>
+        <TextBlock Text="ID" FontSize="16px" Margin="512,97,203,98" Grid.Row="1"/>
+        <TextBox x:Name="ID" AcceptsReturn="True" TextWrapping="Wrap" SpellCheck.IsEnabled="True" Language="FR" Margin="582,97,88,98" Grid.Row="1" />
     </Grid>
 </Page>
